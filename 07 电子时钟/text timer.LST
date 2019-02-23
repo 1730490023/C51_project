@@ -1,0 +1,118 @@
+C51 COMPILER V9.00   TEXT_TIMER                                                            01/02/2019 16:59:29 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE TEXT_TIMER
+OBJECT MODULE PLACED IN text timer.OBJ
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE text timer.c BROWSE INCDIR(..\..\51 Library) DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include<my.h>
+   3          #include<max7219.h>
+   4          #define unsigned int int
+   5          sbit bb=P1^5; 
+   6          
+   7          char hours = 23;                //小时
+   8          char mines = 59;                //分钟
+   9          char second = 50;               //秒
+  10          char clock = 0;         //闹钟
+  11          
+  12          void display()
+  13          {
+  14   1       send2byte(1,DM7219[second%10]);
+  15   1       send2byte(2,DM7219[second/10]);
+  16   1       send2byte(3,DM7219[10]);
+  17   1       send2byte(4,DM7219[mines%10]);
+  18   1       send2byte(5,DM7219[mines/10]);
+  19   1       send2byte(6,DM7219[10]);
+  20   1       send2byte(7,DM7219[hours%10]);
+  21   1       send2byte(8,DM7219[hours/10]);
+  22   1      
+  23   1      }
+  24           
+  25           
+  26          void times()
+  27          {
+  28   1       second++;
+  29   1      // bb=0;
+  30   1      // delaynms(20);
+  31   1      // bb=1;
+  32   1       if(second >59)
+  33   1       {
+  34   2      //  bb=0;
+  35   2      //  delaynms(10);
+  36   2      //  bb=1;
+  37   2        second=0;
+  38   2        mines++;
+  39   2        if(mines>59)
+  40   2        {
+  41   3      //   bb=0;
+  42   3      //   delaynms(10);
+  43   3      //   bb=1;
+  44   3         mines = 0;
+  45   3         hours++;
+  46   3         if(hours>23)
+  47   3         {
+  48   4      //     bb=0;
+  49   4      //       delaynms(10);
+  50   4      //     bb=1;
+  51   4               hours = 0;
+  52   4         }
+  53   3        }
+  54   2       }
+  55   1      }
+C51 COMPILER V9.00   TEXT_TIMER                                                            01/02/2019 16:59:29 PAGE 2   
+
+  56           
+  57          void main()
+  58          {
+  59   1        char i;
+  60   1        init7219();
+  61   1        while(1)
+  62   1        {
+  63   2        display();
+  64   2      //  delaynms(1000);
+  65   2        for(i=50;i>0;i--)
+  66   2        {
+  67   3        delaynms(20);
+  68   3         if(hours==0&mines==0)   //闹钟
+  69   3         {
+  70   4              if(i>45)bb=0;if((i<=45)&&(i>40))bb=1;
+  71   4              if((i<=40)&&(i>35))bb=0;
+  72   4              if((i<=35)&&(i>30))bb=1;
+  73   4              if((i<=30)&&(i>25))bb=0;
+  74   4              if(i<=25)bb=1;
+  75   4         }
+  76   3         else
+  77   3         {
+  78   4               if(second==59)      //整点报时
+  79   4               {
+  80   5                if(i>45)bb=0;if((i<=45)&&(i>40))bb=1;
+  81   5                if((i<=40)&&(i>35))bb=0;
+  82   5                if(i<=35)bb=1;
+  83   5               }
+  84   4               else
+  85   4               {
+  86   5                if(i>45)bb=0;
+  87   5                if(i<=45)bb=1;
+  88   5               }
+  89   4         }
+  90   3        }
+  91   2        times();
+  92   2         }
+  93   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    628    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     36       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

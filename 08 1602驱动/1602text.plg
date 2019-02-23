@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\Text file\51 text\51单片机 学习实验\08 1602驱动\1602text.uvproj
+Project File Date:  10/10/2018
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling 1602.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?1602
+Program Size: data=58.1 xdata=0 code=486
+creating hex file from "1602text"...
+"1602text" - 0 Error(s), 2 Warning(s).

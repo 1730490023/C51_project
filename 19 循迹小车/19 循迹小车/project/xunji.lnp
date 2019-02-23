@@ -1,0 +1,10 @@
+".\main.obj",
+".\lcd1602.obj",
+".\moto.obj",
+".\public.obj",
+".\speed.obj",
+".\Ultra.obj",
+".\display.obj",
+".\hwdg.obj" 
+TO "xunji" 
+RAMSIZE(256) 

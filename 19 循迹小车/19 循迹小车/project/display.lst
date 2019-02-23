@@ -1,0 +1,70 @@
+C51 COMPILER V9.00   DISPLAY                                                               12/17/2018 10:20:15 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE DISPLAY
+OBJECT MODULE PLACED IN .\display.obj
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE ..\source\display.c BROWSE DEBUG OBJECTEXTEND PRINT(.\display.ls
+                    -t) OBJECT(.\display.obj)
+
+line level    source
+
+   1          #include"lcd1602.h"
+   2          #include"global.h"
+   3          #include"display.h"
+   4          #include"public.h"
+   5          #include"moto.h"
+   6          #include"speed.h"                //²âËÙÄ£¿é
+   7          #include"Ultra.h"                //²â¾àÄ£¿é
+   8          
+   9          uchar  code  dir0[]="DIR:shop  ";
+  10          uchar  code  dir1[]="DIR:forw  ";
+  11          uchar  code  dir2[]="DIR:back  ";
+  12          uchar  code  dir3[]="DIR:left  ";
+  13          uchar  code  dir4[]="DIR:right  ";
+  14          
+  15          uchar  code  sft0[]="SFT:P ";
+  16          uchar  code  sft1[]="SFT:L ";
+  17          uchar  code  sft2[]="SFT:M ";
+  18          uchar  code  sft3[]="SFT:H ";
+  19          uchar  code  sft4[]="SFT:F ";
+  20          
+  21          void display(void)
+  22          {
+  23   1        xy(0,0);  
+  24   1        switch(DIR)
+  25   1        {
+  26   2              case 0:wstring(dir0,0);break;
+  27   2              case 1:wstring(dir1,0);break;
+  28   2              case 2:wstring(dir2,0);break;
+  29   2              case 3:wstring(dir3,0);break;
+  30   2              case 4:wstring(dir4,0);break; 
+  31   2        }
+  32   1        switch(SHIFT)
+  33   1        {
+  34   2              case 0:wstring(sft0,0);break;
+  35   2              case 1:wstring(sft1,0);break;
+  36   2              case 2:wstring(sft2,0);break;
+  37   2              case 3:wstring(sft3,0);break;
+  38   2              case 4:wstring(sft4,0);break; 
+  39   2        }
+  40   1        xy(0,1);
+  41   1        wstring(speedstr,0);
+  42   1        //xy(0,1);
+  43   1        wstring(Sstr,0);
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    161    ----
+   CONSTANT SIZE    =     91    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.00   DISPLAY                                                               12/17/2018 10:20:15 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

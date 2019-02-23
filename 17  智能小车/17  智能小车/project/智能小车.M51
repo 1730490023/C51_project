@@ -1,0 +1,232 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/03/2018  10:45:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\KEIL 4\C51\BIN\BL51.EXE .\lcd1602.obj, .\display.obj, .\main.obj, .\moto.obj, .\public.obj TO 智能小车 RAMSI
+>> ZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\lcd1602.obj (LCD1602)
+  .\display.obj (DISPLAY)
+  .\main.obj (MAIN)
+  .\moto.obj (MOTO)
+  .\public.obj (PUBLIC)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  智能小车 (LCD1602)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0015H     UNIT         ?DT?PUBLIC
+            DATA    001DH     0001H     UNIT         ?DT?SCANKEY?PUBLIC
+                    001EH     0002H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?SCANKEY?PUBLIC
+                    0020H.1   0000H.7                *** GAP ***
+            DATA    0021H     0005H     UNIT         ?DT?_WSTRING?LCD1602
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     004BH     UNIT         ?PR?SCANKEY?PUBLIC
+            CODE    004BH     002EH     UNIT         ?PR?_WSTRING?LCD1602
+            CODE    0079H     0022H     UNIT         ?PR?INIT1602?LCD1602
+            CODE    009BH     001EH     UNIT         ?PR?_DELAYNMS?PUBLIC
+            CODE    00B9H     0019H     UNIT         ?C?LIB_CODE
+            CODE    00D2H     0017H     UNIT         ?C_INITSEG
+            CODE    00E9H     0016H     UNIT         ?PR?_WCOM?LCD1602
+            CODE    00FFH     0016H     UNIT         ?PR?_XY?LCD1602
+            CODE    0115H     000FH     UNIT         ?PR?_WDAT?LCD1602
+            CODE    0124H     000CH     UNIT         ?PR?WAIT?LCD1602
+            CODE    0130H     000AH     UNIT         ?PR?_DELAY2US?PUBLIC
+            CODE    013AH     0009H     UNIT         ?PR?DELAY10US?PUBLIC
+
+
+
+OVERLAY MAP OF MODULE:   智能小车 (LCD1602)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+
+
+SYMBOL TABLE OF MODULE:  智能小车 (LCD1602)
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2018  10:45:18  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LCD1602
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0079H         PUBLIC        init1602
+  D:0090H         PUBLIC        P1
+  B:0090H.2       PUBLIC        EN
+  C:004BH         PUBLIC        _wstring
+  B:0090H.0       PUBLIC        RS
+  B:0090H.1       PUBLIC        RW
+  C:0115H         PUBLIC        _wdat
+  C:0124H         PUBLIC        wait
+  C:00E9H         PUBLIC        _wcom
+  B:0080H.7       PUBLIC        BUSY
+  C:00FFH         PUBLIC        _xy
+  -------         PROC          WAIT
+  C:0124H         LINE#         20
+  C:0124H         LINE#         21
+  -------         ENDPROC       WAIT
+  -------         PROC          _WCOM
+  D:0007H         SYMBOL        command
+  D:0004H         SYMBOL        busy
+  C:00E9H         LINE#         33
+  C:00E9H         LINE#         34
+  C:00F5H         LINE#         35
+  -------         ENDPROC       _WCOM
+  -------         PROC          INIT1602
+  C:0079H         LINE#         38
+  C:0079H         LINE#         39
+  C:0084H         LINE#         40
+  C:008FH         LINE#         41
+  -------         ENDPROC       INIT1602
+  -------         PROC          _WDAT
+  D:0007H         SYMBOL        dat
+  C:0115H         LINE#         44
+  C:0115H         LINE#         45
+  -------         ENDPROC       _WDAT
+  -------         PROC          _WSTRING
+  D:0021H         SYMBOL        s
+  D:0024H         SYMBOL        n
+  C:004BH         LINE#         48
+  C:0055H         LINE#         49
+  -------         ENDPROC       _WSTRING
+  -------         PROC          _XY
+  D:0007H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  -------         DO            
+  D:0006H         SYMBOL        address
+  -------         ENDDO         
+  C:00FFH         LINE#         52
+  C:00FFH         LINE#         53
+  C:00FFH         LINE#         54
+  C:010CH         LINE#         55
+  -------         ENDPROC       _XY
+  -------         ENDMOD        LCD1602
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2018  10:45:18  PAGE 3
+
+
+
+  -------         MODULE        DISPLAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  -------         ENDMOD        DISPLAY
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        MOTO
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  -------         ENDMOD        MOTO
+
+  -------         MODULE        PUBLIC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0130H         PUBLIC        _delay2us
+  D:0008H         PUBLIC        seg7ca
+  C:013AH         PUBLIC        delay10us
+  C:009BH         PUBLIC        _delaynms
+  C:0000H         PUBLIC        scankey
+  -------         PROC          SCANKEY
+  -------         DO            
+  D:0001H         SYMBOL        j
+  D:0007H         SYMBOL        i
+  D:0005H         SYMBOL        k
+  D:001DH         SYMBOL        m
+  D:0006H         SYMBOL        n
+  B:0020H.0       SYMBOL        find
+  -------         ENDDO         
+  C:0000H         LINE#         11
+  C:0000H         LINE#         12
+  C:0002H         LINE#         14
+  C:0004H         LINE#         15
+  C:0006H         LINE#         16
+  C:0008H         LINE#         17
+  C:0015H         LINE#         18
+  C:0029H         LINE#         19
+  C:002DH         LINE#         20
+  C:0031H         LINE#         21
+  C:0033H         LINE#         22
+  C:0038H         LINE#         23
+  C:0048H         LINE#         24
+  C:004AH         LINE#         25
+  -------         ENDPROC       SCANKEY
+  -------         PROC          _DELAYNMS
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:009BH         LINE#         27
+  C:009BH         LINE#         28
+  C:009BH         LINE#         30
+  C:00A4H         LINE#         31
+  C:00B8H         LINE#         32
+  -------         ENDPROC       _DELAYNMS
+  -------         PROC          _DELAY2US
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2018  10:45:18  PAGE 4
+
+
+  D:0007H         SYMBOL        n
+  C:0130H         LINE#         34
+  C:0130H         LINE#         35
+  C:0130H         LINE#         36
+  C:0139H         LINE#         37
+  -------         ENDPROC       _DELAY2US
+  -------         PROC          DELAY10US
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:013AH         LINE#         39
+  C:013AH         LINE#         40
+  C:013AH         LINE#         41
+  C:013CH         LINE#         42
+  C:0142H         LINE#         43
+  -------         ENDPROC       DELAY10US
+  -------         ENDMOD        PUBLIC
+
+  -------         MODULE        ?C?CLDPTR
+  C:00B9H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT1602?LCD1602
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WSTRING?LCD1602
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XY?LCD1602
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?PUBLIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?PUBLIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY10US?PUBLIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?C_INITSEG
+
+*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+
+Program Size: data=35.1 xdata=0 code=323
+LINK/LOCATE RUN COMPLETE.  8 WARNING(S),  0 ERROR(S)

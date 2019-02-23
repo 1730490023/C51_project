@@ -1,0 +1,98 @@
+C51 COMPILER V9.00   LED001                                                                12/18/2018 12:34:31 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE LED001
+OBJECT MODULE PLACED IN led001.OBJ
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE led001.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #define uchar unsigned char
+   3          #define uint  unsigned int
+   4          #define wei1   P0 = 0XFE;       //位选1；11111110
+   5          #define wei2   P0 = 0XFD;       //位选2；11111101
+   6          #define wei3   P1 = 0XFB;       //位选3；11111011
+   7          #define wei4   P1 = 0XF7;       //位选4；11110111
+   8          
+   9          uchar code table1 [] =  {0xc0,0xf9,0xa4,0xb0,   //0~f的16个代码,不带小数点
+  10                                   0x99,0x92,0x82,0xf8,
+  11                                       0x80,0x90,/*0x88,0x83,
+  12                                       0xc6,0xa1,0x86,0x8e*/};
+  13          
+  14          uchar code table2[]={0x40,0x73,0x24,0x30,0x19,0x12,0x02,0x78,0x00,0x10};
+  15          uchar code table0 []  ={0xf9,0xb0,0xf9,0x99,};  //需要显示的数字
+  16          uchar state_cnt;                                //显示的状态计数
+  17          uchar table_num;
+  18          uint  i;                                        //用于延时的变量
+  19          
+  20          //////////////////////////////动态显示/////////////////////////////////////////
+  21          
+  22          void SEC_display()                               
+  23          {
+  24   1              
+  25   1              switch(state_cnt)
+  26   1              {                           
+  27   2                      case  0x01  :   P0 = 0xff; wei1; P0 = table0[state_cnt - 1];  //显示1
+  28   2                                          state_cnt++;  break;
+  29   2                      case  0x02  :   P0 = 0xff; wei2;P0 = table0[state_cnt - 1];   //显示2
+  30   2                                  state_cnt++;  break;
+  31   2                      case  0x03  :   P0 = 0xff; wei3;P0 = table0[state_cnt - 1];   //显示3
+  32   2                                          state_cnt++;  break;
+  33   2                      case  0x04  :   P0 = 0xff; wei4;P0 = table0[state_cnt - 1];   //显示4
+  34   2                                          state_cnt = 1;  break;
+  35   2                      default : break;                        
+  36   2              }
+  37   1              for(i=0;i<1000;i++);            //延时，时间很短
+  38   1      }
+  39          
+  40          //////////////////////////////////////////////////////////////////////////////////
+  41          
+  42          void main()
+  43          {
+  44   1          /*
+  45   1              state_cnt = 0x01;
+  46   1              P0 = 0xff;                      //关闭段选
+  47   1              P1 = 0xff;                      //关闭位选
+  48   1              while(1)
+  49   1              {
+  50   1                      SEC_display();
+  51   1              }
+  52   1               */
+  53   1              
+  54   1              
+  55   1              
+C51 COMPILER V9.00   LED001                                                                12/18/2018 12:34:31 PAGE 2   
+
+  56   1              table_num = 10;
+  57   1                                  //关闭段选
+  58   1              //wei2;                        //选第二个数码管
+  59   1              P0=0x00;
+  60   1      
+  61   1              while(table_num)
+  62   1              {
+  63   2                      if(table_num==0)
+  64   2                              table_num = 9;
+  65   2              else
+  66   2                  table_num--;
+  67   2                      P1 = table1[table_num];   //重复显示0~f
+  68   2                      for(i=0;i<30000;i++);
+  69   2              }
+  70   1              while(1);       
+  71   1      
+  72   1      }
+  73          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    144    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

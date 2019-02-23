@@ -1,0 +1,42 @@
+C51 COMPILER V9.00   1332                                                                  12/26/2018 09:51:04 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE 1332
+OBJECT MODULE PLACED IN 1332.OBJ
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE 1332.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          sbit led1=P2^0;
+   3          void delay(unsigned int x)
+   4          {
+   5   1        unsigned char i,j;
+   6   1        for(i=0;i<x;i++)
+   7   1          for(j=0;j<200;j++);
+   8   1      }
+   9          void main()
+  10          {                                                                        
+  11   1        while(1)
+  12   1        {
+  13   2          led1=0;
+  14   2              delay(200);
+  15   2              led1=1;
+  16   2              delay(200);
+  17   2        }
+  18   1      
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     35    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,3 @@
+"led001.obj" 
+TO "num led" 
+RAMSIZE(256) 

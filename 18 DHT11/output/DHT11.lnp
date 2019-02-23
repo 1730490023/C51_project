@@ -1,0 +1,8 @@
+"..\output\STARTUP.obj",
+"..\output\main.obj",
+"..\output\lcd1602.obj",
+"..\output\public.obj",
+"..\output\DHT11.obj" 
+TO "..\output\DHT11" 
+
+PRINT("..\list\DHT11.map")

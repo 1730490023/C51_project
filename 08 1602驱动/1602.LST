@@ -1,0 +1,42 @@
+C51 COMPILER V9.00   1602                                                                  01/10/2019 15:17:49 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE 1602
+OBJECT MODULE PLACED IN 1602.OBJ
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE 1602.c BROWSE INCDIR(..\..\51 Library) DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include<my.h>
+   3          #include<LCD1602.h>
+   4          
+   5          unsigned char string1[]="linyingshuang";
+   6          unsigned char string2[]="176101020429";
+   7          
+   8          void main()
+   9          {
+  10   1          init();
+  11   1              F1602_clear();
+  12   1              xy(1,2);
+  13   1          wstring("linyingshuang");
+  14   1              xy(2,2);
+  15   1              wstring(string2);
+  16   1      
+  17   1              while(1);
+  18   1      
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    249    ----
+   CONSTANT SIZE    =     14    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     48       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

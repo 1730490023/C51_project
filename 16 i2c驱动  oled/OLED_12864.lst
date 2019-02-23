@@ -1,0 +1,351 @@
+C51 COMPILER V9.00   OLED_12864                                                            11/17/2018 15:05:57 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE OLED_12864
+OBJECT MODULE PLACED IN OLED_12864.obj
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE lib\OLED_12864.c BROWSE INCDIR(.\lib) DEBUG OBJECTEXTEND PRINT(.
+                    -\OLED_12864.lst) OBJECT(OLED_12864.obj)
+
+line level    source
+
+   1          #include "OLED_12864.h"
+   2          
+   3          
+   4          void Delay300ms()
+   5          {
+   6   1      
+   7   1      }
+   8          
+   9          
+  10          /*写指令函数，第一个参数为指令，第二、三个参数选择是否需要通信开始和结束函数，=1有，=0没有*/
+  11          bit OLED12864_Write_Commmand(uint8_t cmd, bit start, bit stop)
+  12          {
+  13   1              if(start)
+  14   1              {
+  15   2                      I2C_start();
+  16   2                      I2C_send_byte(OLED_12864_Address+0);//写从机地址，并且加上读写标志位（最后一位）
+  17   2                      if(!Test_ack())
+  18   2                      { 
+  19   3                              return 0;
+  20   3                      }
+  21   2                      /*执行从机应答检测函数，如果从机发送了非应答信号，那么就退出数据发送函数*/
+  22   2              }
+  23   1              I2C_send_byte(0x80 | 0x00 | 0x00);  //Co位为1（接下来要传指令），DC为0（接下来是指令）
+  24   1              if(!Test_ack())
+  25   1              { 
+  26   2                      return 0;
+  27   2              }
+  28   1              /*执行从机应答检测函数，如果从机发送了非应答信号，那么就退出数据发送函数*/
+  29   1      
+  30   1              I2C_send_byte(cmd);
+  31   1              if(!Test_ack())
+  32   1              { 
+  33   2                      return 0;
+  34   2              }
+  35   1              /*执行从机应答检测函数，如果从机发送了非应答信号，那么就退出数据发送函数*/
+  36   1      
+  37   1              if(stop)
+  38   1                      I2C_stop();
+  39   1      
+  40   1              return 1;
+  41   1      }
+  42          
+  43          /*写连续数据函数，第一个参数为数据，第二个参数为发送连多少位连续的数据，第三、四个参数选择是否需要通信开始
+             -和结束函数，=1有，=0没有*/
+  44          bit OLED12864_Write_Continuous_Data(uint8_t* dat, uint8_t count, bit start, bit stop)
+  45          {
+  46   1              uint8_t i = 0;//定义计数变量
+  47   1              if(start)
+  48   1              {
+  49   2                      I2C_start();
+  50   2                      I2C_send_byte(OLED_12864_Address+0);//写从机地址，并且加上读写标志位（最后一位）
+  51   2                      if(!Test_ack())
+  52   2                      { 
+  53   3                              return 0;
+C51 COMPILER V9.00   OLED_12864                                                            11/17/2018 15:05:57 PAGE 2   
+
+  54   3                      }
+  55   2                      /*执行从机应答检测函数，如果从机发送了非应答信号，那么就退出数据发送函数*/
+  56   2              }
+  57   1              I2C_send_byte(0x00 | 0x40 | 0x00);  //Co位为0（接下来只传数据），DC为1（接下来是数据）
+  58   1              if(!Test_ack())
+  59   1              { 
+  60   2                      return 0;
+  61   2              }
+  62   1              /*执行从机应答检测函数，如果从机发送了非应答信号，那么就退出数据发送函数*/
+  63   1              for(i = 0 ;i < count ;i++)
+  64   1              {
+  65   2                      I2C_send_byte(*dat++);
+  66   2                      if(!Test_ack())
+  67   2                      {
+  68   3                              return 0;
+  69   3                      }
+  70   2              /*执行从机应答检测函数，如果从机发送了非应答信号，那么就退出数据发送函数*/
+  71   2              }
+  72   1      
+  73   1              if(stop)
+  74   1                      I2C_stop();
+  75   1      
+  76   1              return 1;
+  77   1      }
+  78          
+  79          
+  80          /*写相同的连续数据函数，第一个参数为数据，第二参数为发送的次数*/
+  81          bit OLED12864_Write_Same_Continuous_Data(uint8_t dat, uint8_t count)
+  82          {
+  83   1              uint8_t i = 0;//定义计数变量
+  84   1              I2C_start();
+  85   1              I2C_send_byte(OLED_12864_Address+0);//写从机地址，并且加上读写标志位（最后一位）
+  86   1              if(!Test_ack())
+  87   1              { 
+  88   2                      return 0;
+  89   2              }
+  90   1              /*执行从机应答检测函数，如果从机发送了非应答信号，那么就退出数据发送函数*/
+  91   1      
+  92   1              I2C_send_byte(0x00 | 0x40 | 0x00);  //Co位为0（接下来只传数据），DC为1（接下来是数据）
+  93   1      
+  94   1              if(!Test_ack())
+  95   1              { 
+  96   2                      return 0;
+  97   2              }
+  98   1              /*执行从机应答检测函数，如果从机发送了非应答信号，那么就退出数据发送函数*/
+  99   1              for(i = 0 ;i < count ;i++ )
+ 100   1              {
+ 101   2                      I2C_send_byte(dat);
+ 102   2                      if(!Test_ack())
+ 103   2                      {
+ 104   3                              return 0;
+ 105   3                      }
+ 106   2              /*执行从机应答检测函数，如果从机发送了非应答信号，那么就退出数据发送函数*/
+ 107   2              }
+ 108   1              
+ 109   1              I2C_stop();
+ 110   1      
+ 111   1              return 1;
+ 112   1      }
+ 113          
+ 114             
+ 115          //Set the cursor position of start  
+C51 COMPILER V9.00   OLED_12864                                                            11/17/2018 15:05:57 PAGE 3   
+
+ 116          void OLED12864_SetPos(uint8_t x, uint8_t y)  
+ 117          {   
+ 118   1          OLED12864_Write_Commmand(0xb0+y,1,0);  
+ 119   1          OLED12864_Write_Commmand(((x&0xf0)>>4)|0x10,0,0);  
+ 120   1          OLED12864_Write_Commmand((x&0x0f)|0x01,0,1);  
+ 121   1      }  
+ 122            
+ 123          //Fill screen wit data  
+ 124          //0x00 is black  
+ 125          //0xff is blue  
+ 126          void OLED12864_Fill(uint8_t fill_Data)  
+ 127          {  
+ 128   1          uint8_t m;
+ 129   1              //uint8_t n;  
+ 130   1          for(m=0;m<8;m++)  
+ 131   1          {  
+ 132   2              OLED12864_Write_Commmand(0xb0+m,1,0);       //page0-page1  
+ 133   2              OLED12864_Write_Commmand(0x00,0,0);     //low column start address  
+ 134   2              OLED12864_Write_Commmand(0x10,0,1);     //high column start address  
+ 135   2                      OLED12864_Write_Same_Continuous_Data(fill_Data, 128); 
+ 136   2          }  
+ 137   1      }  
+ 138            
+ 139          void OLED12864_CLS_LINE(uint8_t rowIndex)  
+ 140          {  
+ 141   1          uint8_t n=0;  
+ 142   1          OLED12864_Write_Commmand(0xb0+rowIndex,1,0);        //page0-page1  
+ 143   1          OLED12864_Write_Commmand(0x00,0,0);     //low column start address  
+ 144   1          OLED12864_Write_Commmand(0x10,0,1);     //high column start address  
+ 145   1              OLED12864_Write_Same_Continuous_Data(0x00, 128);  
+ 146   1      }  
+ 147            
+ 148          //clear screen( fill screen with black)  
+ 149          void OLED12864_CLS(void)  
+ 150          {  
+ 151   1          OLED12864_Fill(0x00);  
+ 152   1      }  
+ 153            
+ 154          //--------------------------------------------------------------  
+ 155          // wake up screen from hibernation  
+ 156          //--------------------------------------------------------------  
+ 157          void OLED12864_ON(void)  
+ 158          {  
+ 159   1          OLED12864_Write_Commmand(0X8D,1,0);  //set charge  
+ 160   1          OLED12864_Write_Commmand(0X14,0,0);  //open charge  
+ 161   1          OLED12864_Write_Commmand(0XAF,0,1);  //OLED wake up  
+ 162   1      }  
+ 163            
+ 164          //--------------------------------------------------------------  
+ 165          // Prototype      : void OLED12864_OFF(void)  
+ 166          // Calls          :   
+ 167          // Parameters     : none  
+ 168          // Description    : ?OLED?? -- ?????,OLED????10uA  
+ 169          //--------------------------------------------------------------  
+ 170          void OLED12864_OFF(void)  
+ 171          {  
+ 172   1          OLED12864_Write_Commmand(0X8D,1,0);  //set charge   
+ 173   1          OLED12864_Write_Commmand(0X10,0,0);  //close charge  
+ 174   1          OLED12864_Write_Commmand(0XAE,0,1);  //OLED hibernate  
+ 175   1      }  
+ 176          
+ 177          bit OLED12864_Initial()  
+C51 COMPILER V9.00   OLED_12864                                                            11/17/2018 15:05:57 PAGE 4   
+
+ 178          {  
+ 179   1          Delay300ms(); // very important delay  
+ 180   1            
+ 181   1          OLED12864_Write_Commmand(0xAE,1,0); //display off  
+ 182   1          OLED12864_Write_Commmand(0x20,0,0); //Set Memory Addressing Mode      
+ 183   1          OLED12864_Write_Commmand(0x10,0,0); //00,Horizontal Addressing Mode;01,Vertical Addressing Mode;10,Pag
+             -e Addressing Mode (RESET);11,Invalid  
+ 184   1          OLED12864_Write_Commmand(0xb0,0,0); //Set Page Start Address for Page Addressing Mode,0-7  
+ 185   1          OLED12864_Write_Commmand(0xc8,0,0); //Set COM Output Scan Direction  
+ 186   1          OLED12864_Write_Commmand(0x00,0,0); //---set low column address  
+ 187   1          OLED12864_Write_Commmand(0x10,0,0); //---set high column address  
+ 188   1          OLED12864_Write_Commmand(0x40,0,0); //--set start line address  
+ 189   1          OLED12864_Write_Commmand(0x81,0,0); //--set contrast control register  
+ 190   1          OLED12864_Write_Commmand(0xff,0,0); //???? 0x00~0xff  
+ 191   1          OLED12864_Write_Commmand(0xa1,0,0); //--set segment re-map 0 to 127  
+ 192   1          OLED12864_Write_Commmand(0xa6,0,0); //--set normal display  
+ 193   1          OLED12864_Write_Commmand(0xa8,0,0); //--set multiplex ratio(1 to 64)  
+ 194   1          OLED12864_Write_Commmand(0x3F,0,0); //  
+ 195   1          OLED12864_Write_Commmand(0xa4,0,0); //0xa4,Output follows RAM content;0xa5,Output ignores RAM content 
+             - 
+ 196   1          OLED12864_Write_Commmand(0xd3,0,0); //-set display offset  
+ 197   1          OLED12864_Write_Commmand(0x00,0,0); //-not offset  
+ 198   1          OLED12864_Write_Commmand(0xd5,0,0); //--set display clock divide ratio/oscillator frequency  
+ 199   1          OLED12864_Write_Commmand(0xf0,0,0); //--set divide ratio  
+ 200   1          OLED12864_Write_Commmand(0xd9,0,0); //--set pre-charge period  
+ 201   1          OLED12864_Write_Commmand(0x22,0,0); //  
+ 202   1          OLED12864_Write_Commmand(0xda,0,0); //--set com pins hardware configuration  
+ 203   1          OLED12864_Write_Commmand(0x12,0,0);  
+ 204   1          OLED12864_Write_Commmand(0xdb,0,0); //--set vcomh  
+ 205   1          OLED12864_Write_Commmand(0x20,0,0); //0x20,0.77xVcc  
+ 206   1          OLED12864_Write_Commmand(0x8d,0,0); //--set DC-DC enable  
+ 207   1          OLED12864_Write_Commmand(0x14,0,0); //  
+ 208   1          OLED12864_Write_Commmand(0xaf,0,1); //--turn on oled panel  
+ 209   1            
+ 210   1          OLED12864_CLS();  
+ 211   1          return 1;  
+ 212   1      }
+ 213            
+ 214          //--------------------------------------------------------------  
+ 215          // show string  
+ 216          // x,y -- start position(x:0~127,column; y:0~7,row);   
+ 217          // ch[] -- the string to show;   
+ 218          // TextSize -- (1:6*8 ; 2:8*16)  
+ 219          //OLED12864_ShowStr(0,3,"I2C Test",1);// 6*8  
+ 220          //OLED12864_ShowStr(0,4,"Hello Delta",2) //8*16  
+ 221          //--------------------------------------------------------------  
+ 222          void OLED12864_ShowStr(uint8_t x, uint8_t y, uint8_t ch[], uint8_t TextSize)  
+ 223          {  
+ 224   1          uint8_t c = 0,i = 0,j = 0;  
+ 225   1          switch(TextSize)  
+ 226   1          {  
+ 227   2              case 1:  
+ 228   2              {  
+ 229   3                  while(ch[j] != '\0' && ch[j] !='\n')  
+ 230   3                  {  
+ 231   4                      c = ch[j] - 32;  
+ 232   4                      if(x > 126)  
+ 233   4                      {  
+ 234   5                          x = 0;  
+ 235   5                          y++;  
+ 236   5                      }  
+ 237   4                      OLED12864_SetPos(x,y);  
+C51 COMPILER V9.00   OLED_12864                                                            11/17/2018 15:05:57 PAGE 5   
+
+ 238   4                      /*for(i=0;i<6;i++)  
+ 239   4                          OLED12864_Write_Data(F6x8[c][i],1,1);*/
+ 240   4                                      OLED12864_Write_Continuous_Data(&F6x8[c][0],6,1,1);//将该位的指针传给函数，并且写连续的6个数据即可  
+ 241   4                      x += 6;  
+ 242   4                      j++;  
+ 243   4                  }  
+ 244   3              }break;  
+ 245   2              case 2:  
+ 246   2              {  
+ 247   3                  while(ch[j] != '\0'  && ch[j] !='\n')  
+ 248   3                  {  
+ 249   4                      c = ch[j] - 32;  
+ 250   4                      if(x > 120)  
+ 251   4                      {  
+ 252   5                          x = 0;  
+ 253   5                          y++;  
+ 254   5                      }  
+ 255   4                      OLED12864_SetPos(x,y);  
+ 256   4                      /*for(i=0;i<8;i++)  
+ 257   4                         OLED12864_Write_Data(F8X16[c*16+i],1,1);  
+ 258   4                      OLED12864_SetPos(x,y+1);  
+ 259   4                      for(i=0;i<8;i++)  
+ 260   4                          OLED12864_Write_Data(F8X16[c*16+i+8],1,1);*/
+ 261   4                                      OLED12864_Write_Continuous_Data(&F8X16[c*16],8,1,1);//将该位的指针传给函数，并且写连续的8个数据即可
+ 262   4                                      OLED12864_SetPos(x,y+1);
+ 263   4                                      OLED12864_Write_Continuous_Data(&F8X16[c*16+8],8,1,1);//将该位的指针传给函数，并且写连续的8个数据即可 
+             - 
+ 264   4                      x += 8;  
+ 265   4                      j++;  
+ 266   4                  }  
+ 267   3              }break;  
+ 268   2          }  
+ 269   1      }
+ 270          
+ 271          uint8_t rowNum = 0; 
+ 272            
+ 273          //--------------------------------------------------------------  
+ 274          // x,y -- start position(x:0~127,column; y:0~7,row);   
+ 275          // the N is the chinese index of F16x16 in codetab  
+ 276          /* 
+ 277           for(i=0;i<5;i++) 
+ 278          { 
+ 279              OLED12864_ShowCN(22+i*16,0,i); 
+ 280          } 
+ 281           */  
+ 282          //--------------------------------------------------------------  
+ 283          void OLED12864_ShowChinese(uint8_t x, uint8_t y, uint8_t N,uint8_t CH_Array[])  
+ 284          {  
+ 285   1          uint16_t  adder=32*N;  
+ 286   1          OLED12864_SetPos(x , y);  
+ 287   1              OLED12864_Write_Continuous_Data(CH_Array+adder,16,1,1);
+ 288   1          OLED12864_SetPos(x,y + 1);  
+ 289   1              OLED12864_Write_Continuous_Data(CH_Array+adder+16,16,1,1); 
+ 290   1      }  
+ 291            
+ 292          //--------------------------------------------------------------  
+ 293          // x0,y0 -- start position(x:0~127,column; y:0~7,row);  
+ 294          // x1,y1 -- end position(x:0~127,column; y:0~7,row);  
+ 295          // BMP[] is the binary byte of a bmp file  
+ 296          // OLED12864_DrawBMP(0,0,128,8,(unsigned char *)BMPimage);  
+ 297          //--------------------------------------------------------------  
+ 298          void OLED12864_DrawBMP(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t BMP[])  
+C51 COMPILER V9.00   OLED_12864                                                            11/17/2018 15:05:57 PAGE 6   
+
+ 299          {  
+ 300   1          uint16_t j=0;  
+ 301   1          uint8_t y; 
+ 302   1        
+ 303   1          if(y1%8==0)  
+ 304   1              y = y1/8;  
+ 305   1          else  
+ 306   1              y = y1/8 + 1;  
+ 307   1          for(y=y0;y<y1;y++)  
+ 308   1          {                                             
+ 309   2              OLED12864_SetPos(x0,y);  
+ 310   2                      OLED12864_Write_Continuous_Data(BMP+(x1-x0)*j,x1-x0,1,1);
+ 311   2                      j++;  
+ 312   2          }  
+ 313   1      }                         
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1039    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1      40
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       4
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

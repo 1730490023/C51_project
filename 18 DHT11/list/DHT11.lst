@@ -1,0 +1,87 @@
+C51 COMPILER V9.00   DHT11                                                                 01/22/2019 20:18:00 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE DHT11
+OBJECT MODULE PLACED IN ..\output\DHT11.obj
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE ..\source\DHT11.C OMF2 BROWSE DEBUG PRINT(..\list\DHT11.lst) OBJ
+                    -ECT(..\output\DHT11.obj)
+
+line level    source
+
+   1          #include<at89x52.h>
+   2          #include"public.h"
+   3          sbit DHTIO = P2^0;
+   4          unsigned char Tem_z;Tem_x;        //整数部分，小数部分
+   5          unsigned char Hum_z;Hum_x;
+   6          unsigned char Check;   //存校验
+   7          
+   8          void DHT11_Start()      //模块唤醒
+   9          {
+  10   1       DHTIO = 0;
+  11   1       delaynms(20);      //总线拉低，唤醒模块
+  12   1       DHTIO = 1;
+  13   1       delay10us();delay10us();
+  14   1       delay10us();delay10us();//延时40us
+  15   1      }
+  16          
+  17          unsigned char DHT11_dat() //读取一个字节
+  18          {
+  19   1        unsigned char i;
+  20   1        unsigned char flag;      //超时的时间控制
+  21   1            bit tempbit;      //临时暂存
+  22   1        unsigned char tempbyte;
+  23   1        for(i=0;i<8;i++)                 //连续取一个字节
+  24   1        {
+  25   2         flag=1;
+  26   2         while((!DHTIO)&&(flag++));
+  27   2         tempbit = 0;
+  28   2         delay10us();
+  29   2          delay10us();
+  30   2               delay10us();  //延时30us
+  31   2              if(DHTIO==1) tempbit=1;
+  32   2               flag=1;
+  33   2               while((DHTIO)&&(flag++));
+  34   2               tempbyte<<=1;           //左移一位
+  35   2               tempbyte|=     tempbit;
+  36   2        }
+  37   1        return tempbyte;
+  38   1      }
+  39          
+  40          void ReadDAT()                    //读取数据
+  41          {
+  42   1        unsigned char flag;
+  43   1        DHT11_Start();
+  44   1        if(!DHTIO)
+  45   1        {
+  46   2         flag=1;
+  47   2         while((!DHTIO)&&(flag++));
+  48   2         flag=1;
+  49   2         while((DHTIO)&&(flag++))     ;
+  50   2         Hum_z = DHT11_dat();
+  51   2         Hum_x = DHT11_dat();
+  52   2         Tem_z = DHT11_dat();
+  53   2         Tem_x = DHT11_dat();
+  54   2         Check = DHT11_dat();
+C51 COMPILER V9.00   DHT11                                                                 01/22/2019 20:18:00 PAGE 2   
+
+  55   2         DHTIO = 1;
+  56   2        }
+  57   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    154    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      7       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

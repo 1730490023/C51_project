@@ -1,0 +1,103 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/29/2018  11:28:52  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\KEIL 4\C51\BIN\BL51.EXE sccs.obj TO qing RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  sccs.obj (SCCS)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  qing (SCCS)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?SCCS
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     0062H     UNIT         ?PR?MAIN?SCCS
+            CODE    0070H     0017H     UNIT         ?PR?T_0?SCCS
+            CODE    0087H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   qing (SCCS)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?SCCS
+
+
+
+SYMBOL TABLE OF MODULE:  qing (SCCS)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SCCS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  B:0090H.5       PUBLIC        P1_5
+  C:000EH         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  D:0082H         PUBLIC        DPTR
+  B:00A8H.1       PUBLIC        ET0
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/29/2018  11:28:52  PAGE 2
+
+
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  D:0083H         PUBLIC        DPH
+  D:0008H         PUBLIC        cz
+  D:0082H         PUBLIC        DPL
+  C:0070H         PUBLIC        T_0
+  -------         PROC          MAIN
+  C:000EH         LINE#         25
+  C:000EH         LINE#         26
+  C:000EH         LINE#         27
+  C:0011H         LINE#         28
+  C:0013H         LINE#         29
+  C:0015H         LINE#         31
+  C:0015H         LINE#         32
+  C:0015H         LINE#         33
+  C:0030H         LINE#         34
+  C:0030H         LINE#         35
+  C:003AH         LINE#         36
+  C:0044H         LINE#         37
+  C:004EH         LINE#         38
+  C:0058H         LINE#         39
+  C:0062H         LINE#         40
+  C:006CH         LINE#         41
+  C:006EH         LINE#         42
+  C:006EH         LINE#         43
+  -------         ENDPROC       MAIN
+  -------         PROC          T_0
+  C:0070H         LINE#         47
+  C:0074H         LINE#         49
+  C:007AH         LINE#         50
+  C:007DH         LINE#         51
+  C:0080H         LINE#         52
+  C:0082H         LINE#         53
+  -------         ENDPROC       T_0
+  -------         ENDMOD        SCCS
+
+Program Size: data=11.0 xdata=0 code=139
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

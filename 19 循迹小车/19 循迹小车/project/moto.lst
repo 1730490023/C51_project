@@ -1,0 +1,81 @@
+C51 COMPILER V9.00   MOTO                                                                  12/17/2018 10:20:14 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MOTO
+OBJECT MODULE PLACED IN .\moto.obj
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE ..\source\moto.c BROWSE DEBUG OBJECTEXTEND PRINT(.\moto.lst) OBJ
+                    -ECT(.\moto.obj)
+
+line level    source
+
+   1          #include<at89x52.h>
+   2          #include"global.h"
+   3          #include"public.h"
+   4          #include"moto.h"
+   5          unsigned char  DIR;    //方向
+   6          unsigned char  SHIFT;  //档位
+   7          unsigned char  BDIR;   //存方向状态
+   8          void left(void)        {LMF=1;LMB=0;RMF=0;RMB=1;}        //左转
+   9          void right(void)       {LMF=0;LMB=1;RMF=1;RMB=0;}        //右转
+  10          void forward(void)         {LMF=0;LMB=1;RMF=0;RMB=1;}    //前进
+  11          void back(void)        {LMF=1;LMB=0;RMF=1;RMB=0;}        //后退
+  12          void stop(void)            {LMF=1;LMB=1;RMF=1;RMB=1;}    //停止
+  13          
+  14          void run(void)  
+  15                     {
+  16   1              switch (DIR)
+  17   1                       {case 0:stop();      break;
+  18   2                        case 1:forward();   break;    
+  19   2                        case 2:back();      break;      
+  20   2                        case 3:left();      break;      
+  21   2                        case 4:right();     break;     
+  22   2                   } 
+  23   1                 }
+  24          
+  25          void initINT(void)
+  26          {
+  27   1       IT1=IT0=1;
+  28   1       EX1=EX0=1;
+  29   1      }
+  30          
+  31          void INT_0()interrupt 0           //换向
+  32          { 
+  33   1       delaynms(10);
+  34   1       if(!INT0)
+  35   1       {
+  36   2         DIR++;
+  37   2         if(DIR>1)DIR=0;
+  38   2         BDIR=DIR;
+  39   2       }
+  40   1      // delaynms(10);
+  41   1      //  if(!INT0)
+  42   1      //  {
+  43   1      //   DIR++;if(DIR>4)DIR=0;
+  44   1      //   BDIR = DIR;
+  45   1      //  }
+  46   1      }
+  47          
+  48          void INT_1()interrupt 2            //换挡位
+  49          {
+  50   1         delaynms(10);
+  51   1         if(!INT1)
+  52   1        {
+  53   2         SHIFT++;if(SHIFT>4)SHIFT=0;
+  54   2        }
+C51 COMPILER V9.00   MOTO                                                                  12/17/2018 10:20:14 PAGE 2   
+
+  55   1      }                          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    247    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,208 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/02/2019  16:42:41  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\KEIL 4\C51\BIN\BL51.EXE timers.obj TO time RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  timers.obj (TIMERS)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  time (TIMERS)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?SCANKEY?TIMERS
+                    0009H     0017H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?SCANKEY?TIMERS
+                    0020H.1   0000H.7                *** GAP ***
+            DATA    0021H     0020H     UNIT         ?DT?TIMERS
+            IDATA   0041H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     004EH     UNIT         ?PR?MAIN?TIMERS
+            CODE    00DDH     004BH     UNIT         ?PR?SCANKEY?TIMERS
+            CODE    0128H     0045H     UNIT         ?PR?INIT7219?TIMERS
+            CODE    016DH     0027H     UNIT         ?PR?_DELAYNMS?TIMERS
+            CODE    0194H     0025H     UNIT         ?C_INITSEG
+            CODE    01B9H     0011H     UNIT         ?PR?_SENDBYTE?TIMERS
+            CODE    01CAH     000DH     UNIT         ?PR?_SEND2BYTE?TIMERS
+            CODE    01D7H     000AH     UNIT         ?PR?_DELAY2US?TIMERS
+
+
+
+OVERLAY MAP OF MODULE:   time (TIMERS)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TIMERS
+  +--> ?C_INITSEG
+
+?PR?MAIN?TIMERS
+  +--> ?PR?INIT7219?TIMERS
+  +--> ?PR?_SEND2BYTE?TIMERS
+  +--> ?PR?_DELAYNMS?TIMERS
+
+?PR?INIT7219?TIMERS
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2019  16:42:41  PAGE 2
+
+
+  +--> ?PR?_SENDBYTE?TIMERS
+  +--> ?PR?_DELAYNMS?TIMERS
+
+?PR?_DELAYNMS?TIMERS
+  +--> ?PR?_SENDBYTE?TIMERS
+
+?PR?_SEND2BYTE?TIMERS
+  +--> ?PR?_SENDBYTE?TIMERS
+
+
+
+SYMBOL TABLE OF MODULE:  time (TIMERS)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TIMERS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0128H         PUBLIC        init7219
+  C:01CAH         PUBLIC        _send2byte
+  B:00A0H.1       PUBLIC        CS
+  C:008FH         PUBLIC        main
+  C:01D7H         PUBLIC        _delay2us
+  D:0021H         PUBLIC        seg7ca
+  B:00A0H.0       PUBLIC        CLK
+  B:00A0H.2       PUBLIC        DIN
+  C:0176H         PUBLIC        _delaynms
+  C:01B9H         PUBLIC        _sendbyte
+  D:0036H         PUBLIC        DM7219
+  C:00DDH         PUBLIC        scankey
+  -------         PROC          SCANKEY
+  -------         DO            
+  D:0001H         SYMBOL        j
+  D:0007H         SYMBOL        i
+  D:0005H         SYMBOL        k
+  D:0008H         SYMBOL        m
+  D:0006H         SYMBOL        n
+  B:0020H.0       SYMBOL        find
+  -------         ENDDO         
+  C:00DDH         LINE#         9
+  C:00DDH         LINE#         10
+  C:00DDH         LINE#         11
+  C:00DFH         LINE#         13
+  C:00E1H         LINE#         14
+  C:00E3H         LINE#         15
+  C:00E3H         LINE#         16
+  C:00E5H         LINE#         17
+  C:00EAH         LINE#         18
+  C:00EEH         LINE#         19
+  C:00EEH         LINE#         20
+  C:00F0H         LINE#         21
+  C:00F2H         LINE#         22
+  C:0102H         LINE#         23
+  C:0102H         LINE#         24
+  C:0106H         LINE#         25
+  C:010AH         LINE#         26
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2019  16:42:41  PAGE 3
+
+
+  C:010EH         LINE#         27
+  C:0110H         LINE#         28
+  C:0110H         LINE#         29
+  C:0110H         LINE#         30
+  C:0115H         LINE#         31
+  C:0119H         LINE#         32
+  C:0125H         LINE#         33
+  C:0127H         LINE#         34
+  -------         ENDPROC       SCANKEY
+  C:016DH         SYMBOL        L?0036
+  -------         PROC          L?0035
+  -------         ENDPROC       L?0035
+  C:016DH         SYMBOL        L?0036
+  -------         PROC          _DELAYNMS
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0176H         LINE#         36
+  C:0176H         LINE#         37
+  C:0176H         LINE#         39
+  C:017FH         LINE#         40
+  C:0193H         LINE#         41
+  -------         ENDPROC       _DELAYNMS
+  -------         PROC          _DELAY2US
+  D:0007H         SYMBOL        n
+  C:01D7H         LINE#         43
+  C:01D7H         LINE#         44
+  C:01D7H         LINE#         45
+  C:01E0H         LINE#         46
+  -------         ENDPROC       _DELAY2US
+  -------         PROC          _SENDBYTE
+  D:0007H         SYMBOL        dat
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:01B9H         LINE#         15
+  C:01B9H         LINE#         16
+  C:01B9H         LINE#         17
+  C:01BBH         LINE#         18
+  C:01C9H         LINE#         19
+  -------         ENDPROC       _SENDBYTE
+  -------         PROC          _SEND2BYTE
+  D:0007H         SYMBOL        add
+  D:0004H         SYMBOL        dat
+  C:01CAH         LINE#         25
+  C:01CAH         LINE#         26
+  -------         ENDPROC       _SEND2BYTE
+  -------         PROC          INIT7219
+  C:0128H         LINE#         29
+  C:0128H         LINE#         36
+  C:0134H         LINE#         37
+  C:0140H         LINE#         38
+  C:014CH         LINE#         39
+  C:0158H         LINE#         40
+  -------         ENDPROC       INIT7219
+  -------         PROC          MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2019  16:42:41  PAGE 4
+
+
+  C:008FH         LINE#         6
+  C:008FH         LINE#         7
+  C:008FH         LINE#         8
+  C:0092H         LINE#         9
+  C:009CH         LINE#         10
+  C:00A4H         LINE#         11
+  C:00ACH         LINE#         12
+  C:00B4H         LINE#         13
+  C:00BCH         LINE#         14
+  C:00C4H         LINE#         15
+  C:00CCH         LINE#         16
+  C:00D4H         LINE#         17
+  C:00DBH         LINE#         18
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TIMERS
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?TIMERS
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?TIMERS
+
+Program Size: data=42.1 xdata=0 code=481
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

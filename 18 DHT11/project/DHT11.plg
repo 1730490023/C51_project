@@ -1,0 +1,406 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\Text file\51 text\51单片机 学习实验\18 DHT11\project\DHT11.uvproj
+Project File Date:  12/12/2018
+
+<h2>Output:</h2>
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+..\SOURCE\DHT11.C(8): error C129: missing ';' before 'void'
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+..\SOURCE\DHT11.C(11): warning C206: 'delaynms': missing function-prototype
+..\SOURCE\DHT11.C(11): error C267: 'delaynms': requires ANSI-style prototype
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+..\SOURCE\DHT11.C(21): error C141: syntax error near 'bit'
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _XY
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _WSTRING
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _WDAT
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  INIT1602
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _WCOM
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  WAIT
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  SEG7CA
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY10US
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _DELAY2US
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _DELAYNMS
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  SCANKEY
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  SEG7CA
+    MODULE:  .\DHT11.obj (DHT11)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY10US
+    MODULE:  .\DHT11.obj (DHT11)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _DELAY2US
+    MODULE:  .\DHT11.obj (DHT11)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _DELAYNMS
+    MODULE:  .\DHT11.obj (DHT11)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  SCANKEY
+    MODULE:  .\DHT11.obj (DHT11)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY10US?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT1602?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WSTRING?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WSTRING?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XY?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYNMS?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY10US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READDAT?DHT11
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  _DELAYNMS
+    MODULE:  .\lcd1602.obj (LCD1602)
+    ADDRESS: 0297H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  _DELAYNMS
+    MODULE:  .\lcd1602.obj (LCD1602)
+    ADDRESS: 0245H
+Program Size: data=89.4 xdata=0 code=1033
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _XY
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _WSTRING
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _WDAT
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  INIT1602
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _WCOM
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  WAIT
+    MODULE:  .\lcd1602.obj (LCD1602)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  SEG7CA
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY10US
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _DELAY2US
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _DELAYNMS
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  SCANKEY
+    MODULE:  .\public.obj (PUBLIC)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  SEG7CA
+    MODULE:  .\DHT11.obj (DHT11)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY10US
+    MODULE:  .\DHT11.obj (DHT11)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _DELAY2US
+    MODULE:  .\DHT11.obj (DHT11)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _DELAYNMS
+    MODULE:  .\DHT11.obj (DHT11)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  SCANKEY
+    MODULE:  .\DHT11.obj (DHT11)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY10US?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT1602?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WSTRING?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WSTRING?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XY?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYNMS?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY10US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?DHT11
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READDAT?DHT11
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  _DELAYNMS
+    MODULE:  .\lcd1602.obj (LCD1602)
+    ADDRESS: 0297H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  _DELAYNMS
+    MODULE:  .\lcd1602.obj (LCD1602)
+    ADDRESS: 0245H
+Program Size: data=89.4 xdata=0 code=1033
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+..\SOURCE\PUBLIC.C(4): error C279: 'seg7ca': multiple initialization
+..\SOURCE\PUBLIC.C(25): error C237: 'scankey': function already has a body
+..\SOURCE\PUBLIC.C(32): error C237: '_delaynms': function already has a body
+..\SOURCE\PUBLIC.C(37): error C237: '_delay2us': function already has a body
+..\SOURCE\PUBLIC.C(43): error C237: 'delay10us': function already has a body
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT1602?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WSTRING?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XY?LCD1602
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?PUBLIC
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READDAT?DHT11
+Program Size: data=46.2 xdata=0 code=622
+"DHT11" - 0 Error(s), 6 Warning(s).
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+..\SOURCE\MAIN.C(19): warning C206: 'ReadDHT': missing function-prototype
+..\SOURCE\MAIN.C(20): error C202: 'Tem_z': undefined identifier
+..\SOURCE\MAIN.C(21): error C202: 'Tem_z': undefined identifier
+..\SOURCE\MAIN.C(21): error C141: syntax error near '='
+..\SOURCE\MAIN.C(23): error C202: 'Hum_z': undefined identifier
+..\SOURCE\MAIN.C(24): error C202: 'Hum_z': undefined identifier
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+..\SOURCE\MAIN.C(19): warning C206: 'ReadDHT': missing function-prototype
+..\SOURCE\MAIN.C(20): error C202: 'Tem_z': undefined identifier
+..\SOURCE\MAIN.C(21): error C202: 'Tem_z': undefined identifier
+..\SOURCE\MAIN.C(21): error C141: syntax error near '='
+..\SOURCE\MAIN.C(23): error C202: 'Hum_z': undefined identifier
+..\SOURCE\MAIN.C(24): error C202: 'Hum_z': undefined identifier
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+..\SOURCE\MAIN.C(19): warning C206: 'ReadDHT': missing function-prototype
+..\SOURCE\MAIN.C(20): error C202: 'Tem_z': undefined identifier
+..\SOURCE\MAIN.C(21): error C202: 'Tem_z': undefined identifier
+..\SOURCE\MAIN.C(21): error C141: syntax error near '='
+..\SOURCE\MAIN.C(23): error C202: 'Hum_z': undefined identifier
+..\SOURCE\MAIN.C(24): error C202: 'Hum_z': undefined identifier
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+..\SOURCE\MAIN.C(19): warning C206: 'ReadDHT': missing function-prototype
+..\SOURCE\MAIN.C(21): error C141: syntax error near '='
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+..\SOURCE\MAIN.C(19): warning C206: 'ReadDHT': missing function-prototype
+..\SOURCE\MAIN.C(21): error C141: syntax error near '='
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+..\SOURCE\MAIN.C(19): warning C206: 'ReadDHT': missing function-prototype
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    SCANKEY/PUBLIC
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    _DELAY2US/PUBLIC
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    READDAT/DHT11
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ReadDHT
+    MODULE:  .\main.obj (MAIN)
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ReadDHT
+    MODULE:  .\main.obj (MAIN)
+    ADDRESS: 10000B3H
+Program Size: data=74.2 xdata=0 const=0 code=786
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+..\SOURCE\MAIN.C(19): warning C206: 'ReadDHT': missing function-prototype
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    SCANKEY/PUBLIC
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    _DELAY2US/PUBLIC
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    READDAT/DHT11
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ReadDHT
+    MODULE:  ..\main.obj (MAIN)
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ReadDHT
+    MODULE:  ..\main.obj (MAIN)
+    ADDRESS: 10000B3H
+Program Size: data=74.2 xdata=0 const=0 code=786
+目标未创建
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    SCANKEY/PUBLIC
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    _DELAY2US/PUBLIC
+Program Size: data=71.2 xdata=0 const=0 code=786
+creating hex file from "..\DHT11"...
+"..\DHT11" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    SCANKEY/PUBLIC
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    _DELAY2US/PUBLIC
+Program Size: data=71.2 xdata=0 const=0 code=786
+creating hex file from "..\DHT11"...
+"..\DHT11" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd1602.c...
+compiling public.c...
+compiling DHT11.C...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    SCANKEY/PUBLIC
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    _DELAY2US/PUBLIC
+Program Size: data=71.2 xdata=0 const=0 code=786
+creating hex file from "..\DHT11"...
+"..\DHT11" - 0 Error(s), 2 Warning(s).

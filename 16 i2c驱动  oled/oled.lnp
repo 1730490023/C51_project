@@ -1,0 +1,6 @@
+"oled.obj",
+"OLED_12864.obj",
+"IIC.obj",
+"codetab.obj" 
+TO "oled" 
+RAMSIZE(256) 

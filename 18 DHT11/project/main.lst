@@ -1,0 +1,60 @@
+C51 COMPILER V9.00   MAIN                                                                  12/12/2018 10:44:30 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\main.obj
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE ..\source\main.c OMF2 BROWSE DEBUG PRINT(.\main.lst) OBJECT(..\m
+                    -ain.obj)
+
+line level    source
+
+   1          #include<at89x52.h>
+   2          #include"public.h"
+   3          #include"lcd1602.h"
+   4          #include"DHT11.h"
+   5          
+   6          unsigned char string1[]="Ready...";
+   7          unsigned char string2[]="Tem:00 C";
+   8          unsigned char string3[]="Hum:00%RH";
+   9          
+  10          void main()
+  11          {
+  12   1        delaynms(400);
+  13   1        init1602();     //液晶屏初始化
+  14   1        xy(0,0);
+  15   1        wstring(string1,0);
+  16   1        delaynms(1000);   //DHT11开机稳定
+  17   1        while(1)
+  18   1        {
+  19   2         ReadDAT();     //获取
+  20   2         string2[4]=Tem_z/10+'0';
+  21   2         string2[5]=Tem_z%10+'0';
+  22   2         string2[6]=0xdf;        //温度单位
+  23   2         string3[4]=Hum_z/10+'0';
+  24   2         string3[4]=Hum_z%10+'0';                                      
+  25   2         xy(0,0);
+  26   2         wstring(string2,0);
+  27   2         xy(0,1);
+  28   2         wstring(string3,0);
+  29   2         delaynms(3000);
+  30   2        }    
+  31   1      
+  32   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    131    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     28    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

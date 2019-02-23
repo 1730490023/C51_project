@@ -1,0 +1,7 @@
+"STARTUP.obj",
+".\main.obj",
+".\lcd1602.obj",
+".\public.obj",
+".\DHT11.obj" 
+TO "DHT11" 
+

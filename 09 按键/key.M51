@@ -1,0 +1,181 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/15/2018  11:33:37  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\KEIL 4\C51\BIN\BL51.EXE keytext.obj TO key RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  keytext.obj (KEYTEXT)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  key (KEYTEXT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0015H     UNIT         ?DT?KEYTEXT
+            DATA    001DH     0001H     UNIT         ?DT?SCANKEY?KEYTEXT
+                    001EH     0002H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?SCANKEY?KEYTEXT
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     004BH     UNIT         ?PR?SCANKEY?KEYTEXT
+            CODE    00DAH     0040H     UNIT         ?PR?MAIN?KEYTEXT
+            CODE    011AH     0022H     UNIT         ?PR?_DELAYNMS?KEYTEXT
+            CODE    013CH     0018H     UNIT         ?C_INITSEG
+            CODE    0154H     000AH     UNIT         ?PR?_DELAY2US?KEYTEXT
+
+
+
+OVERLAY MAP OF MODULE:   key (KEYTEXT)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?KEYTEXT
+  +--> ?C_INITSEG
+
+?PR?MAIN?KEYTEXT
+  +--> ?PR?_DELAYNMS?KEYTEXT
+
+
+
+SYMBOL TABLE OF MODULE:  key (KEYTEXT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/15/2018  11:33:37  PAGE 2
+
+
+
+  -------         MODULE        KEYTEXT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  B:0090H.0       PUBLIC        P1_0
+  B:00B0H.6       PUBLIC        P3_6
+  B:00B0H.7       PUBLIC        P3_7
+  C:00DAH         PUBLIC        main
+  C:0154H         PUBLIC        _delay2us
+  D:0008H         PUBLIC        seg7ca
+  C:011EH         PUBLIC        _delaynms
+  C:008FH         PUBLIC        scankey
+  -------         PROC          SCANKEY
+  -------         DO            
+  D:0001H         SYMBOL        j
+  D:0007H         SYMBOL        i
+  D:0005H         SYMBOL        k
+  D:001DH         SYMBOL        m
+  D:0006H         SYMBOL        n
+  B:0020H.0       SYMBOL        find
+  -------         ENDDO         
+  C:008FH         LINE#         9
+  C:008FH         LINE#         10
+  C:008FH         LINE#         11
+  C:0091H         LINE#         13
+  C:0093H         LINE#         14
+  C:0095H         LINE#         15
+  C:0095H         LINE#         16
+  C:0097H         LINE#         17
+  C:009CH         LINE#         18
+  C:00A0H         LINE#         19
+  C:00A0H         LINE#         20
+  C:00A2H         LINE#         21
+  C:00A4H         LINE#         22
+  C:00B4H         LINE#         23
+  C:00B4H         LINE#         24
+  C:00B8H         LINE#         25
+  C:00BCH         LINE#         26
+  C:00C0H         LINE#         27
+  C:00C2H         LINE#         28
+  C:00C2H         LINE#         29
+  C:00C2H         LINE#         30
+  C:00C7H         LINE#         31
+  C:00CBH         LINE#         32
+  C:00D7H         LINE#         33
+  C:00D9H         LINE#         34
+  -------         ENDPROC       SCANKEY
+  C:011AH         SYMBOL        L?0040
+  -------         PROC          L?0039
+  -------         ENDPROC       L?0039
+  C:011AH         SYMBOL        L?0040
+  -------         PROC          _DELAYNMS
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/15/2018  11:33:37  PAGE 3
+
+
+  C:011EH         LINE#         36
+  C:011EH         LINE#         37
+  C:011EH         LINE#         39
+  C:0127H         LINE#         40
+  C:013BH         LINE#         41
+  -------         ENDPROC       _DELAYNMS
+  -------         PROC          _DELAY2US
+  D:0007H         SYMBOL        n
+  C:0154H         LINE#         43
+  C:0154H         LINE#         44
+  C:0154H         LINE#         45
+  C:015DH         LINE#         46
+  -------         ENDPROC       _DELAY2US
+  -------         PROC          MAIN
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:00DAH         LINE#         7
+  C:00DAH         LINE#         8
+  C:00DAH         LINE#         9
+  C:00DCH         LINE#         11
+  C:00DEH         LINE#         13
+  C:00DEH         LINE#         14
+  C:00DEH         LINE#         17
+  C:00E1H         LINE#         18
+  C:00E1H         LINE#         19
+  C:00E4H         LINE#         20
+  C:00E7H         LINE#         21
+  C:00E7H         LINE#         22
+  C:00EAH         LINE#         23
+  C:00EDH         LINE#         24
+  C:00F4H         LINE#         25
+  C:00FBH         LINE#         26
+  C:00FBH         LINE#         27
+  C:00FBH         LINE#         28
+  C:00FEH         LINE#         29
+  C:00FEH         LINE#         30
+  C:0101H         LINE#         31
+  C:0104H         LINE#         32
+  C:0104H         LINE#         33
+  C:0107H         LINE#         34
+  C:010AH         LINE#         35
+  C:0111H         LINE#         36
+  C:0118H         LINE#         37
+  C:0118H         LINE#         38
+  C:0118H         LINE#         39
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        KEYTEXT
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?KEYTEXT
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?KEYTEXT
+
+Program Size: data=31.1 xdata=0 code=350
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

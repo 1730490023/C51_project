@@ -1,0 +1,173 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/26/2018  09:41:08  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\KEIL 4\C51\BIN\BL51.EXE lednum.obj TO numled RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  lednum.obj (LEDNUM)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  numled (LEDNUM)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0017H     UNIT         ?DT?LEDNUM
+            DATA    001FH     0001H     UNIT         ?DT?SCANKEY?LEDNUM
+            BIT     0020H.0   0000H.1   UNIT         ?BI?SCANKEY?LEDNUM
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     006DH     UNIT         ?PR?MAIN?LEDNUM
+            CODE    00FCH     004BH     UNIT         ?PR?SCANKEY?LEDNUM
+            CODE    0147H     001EH     UNIT         ?PR?_DELAYNMS?LEDNUM
+            CODE    0165H     001BH     UNIT         ?C_INITSEG
+            CODE    0180H     0010H     UNIT         ?CO?LEDNUM
+            CODE    0190H     000AH     UNIT         ?PR?_DELAY2US?LEDNUM
+
+
+
+OVERLAY MAP OF MODULE:   numled (LEDNUM)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LEDNUM
+  +--> ?C_INITSEG
+
+?PR?MAIN?LEDNUM
+  +--> ?CO?LEDNUM
+  +--> ?PR?_DELAYNMS?LEDNUM
+
+
+
+SYMBOL TABLE OF MODULE:  numled (LEDNUM)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/26/2018  09:41:08  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        LEDNUM
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  B:0090H.4       PUBLIC        b4
+  B:0090H.5       PUBLIC        b5
+  D:00B8H         PUBLIC        IP
+  C:008FH         PUBLIC        main
+  C:0190H         PUBLIC        _delay2us
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0180H         PUBLIC        table1
+  D:0008H         PUBLIC        seg7ca
+  C:0147H         PUBLIC        _delaynms
+  B:0090H.0       PUBLIC        led0
+  B:0090H.1       PUBLIC        led1
+  D:00C8H         PUBLIC        T2CON
+  D:001DH         PUBLIC        i
+  C:00FCH         PUBLIC        scankey
+  D:001EH         PUBLIC        x
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          SCANKEY
+  -------         DO            
+  D:0001H         SYMBOL        j
+  D:0007H         SYMBOL        i
+  D:0005H         SYMBOL        k
+  D:001FH         SYMBOL        m
+  D:0006H         SYMBOL        n
+  B:0020H.0       SYMBOL        find
+  -------         ENDDO         
+  C:00FCH         LINE#         9
+  C:00FCH         LINE#         10
+  C:00FEH         LINE#         12
+  C:0100H         LINE#         13
+  C:0102H         LINE#         14
+  C:0104H         LINE#         15
+  C:0111H         LINE#         16
+  C:0125H         LINE#         17
+  C:0129H         LINE#         18
+  C:012DH         LINE#         19
+  C:012FH         LINE#         20
+  C:0134H         LINE#         21
+  C:0144H         LINE#         22
+  C:0146H         LINE#         23
+  -------         ENDPROC       SCANKEY
+  -------         PROC          _DELAYNMS
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0147H         LINE#         25
+  C:0147H         LINE#         26
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/26/2018  09:41:08  PAGE 3
+
+
+  C:0147H         LINE#         28
+  C:0150H         LINE#         29
+  C:0164H         LINE#         30
+  -------         ENDPROC       _DELAYNMS
+  -------         PROC          _DELAY2US
+  D:0007H         SYMBOL        n
+  C:0190H         LINE#         32
+  C:0190H         LINE#         33
+  C:0190H         LINE#         34
+  C:0199H         LINE#         35
+  -------         ENDPROC       _DELAY2US
+  -------         PROC          MAIN
+  C:008FH         LINE#         13
+  C:008FH         LINE#         14
+  C:008FH         LINE#         15
+  C:0096H         LINE#         16
+  C:0096H         LINE#         17
+  C:0099H         LINE#         18
+  C:0099H         LINE#         19
+  C:009DH         LINE#         20
+  C:00ABH         LINE#         21
+  C:00B2H         LINE#         22
+  C:00B5H         LINE#         23
+  C:00B9H         LINE#         24
+  C:00C7H         LINE#         25
+  C:00CEH         LINE#         26
+  C:00D1H         LINE#         27
+  C:00D8H         LINE#         28
+  C:00D8H         LINE#         29
+  C:00DAH         LINE#         30
+  C:00DCH         LINE#         32
+  C:00DCH         LINE#         33
+  C:00DEH         LINE#         34
+  C:00DEH         LINE#         35
+  C:00E7H         LINE#         36
+  C:00EBH         LINE#         37
+  C:00F6H         LINE#         38
+  C:00FAH         LINE#         39
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LEDNUM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LEDNUM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LEDNUM
+
+Program Size: data=33.1 xdata=0 code=410
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

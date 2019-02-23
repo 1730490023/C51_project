@@ -1,0 +1,7 @@
+"..\output\hwdg.obj",
+"..\output\moto.obj",
+"..\output\main.obj",
+"..\output\public.obj" 
+TO "..\output\xunji" 
+
+PRINT("..\listing\xunji.map") REMOVEUNUSED 

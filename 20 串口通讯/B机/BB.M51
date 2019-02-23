@@ -1,0 +1,95 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/30/2018  15:09:40  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\KEIL 4\C51\BIN\BL51.EXE BB.obj TO BB RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  BB.obj (BB)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  BB (BB)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?BB
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0010H     UNIT         ?PR?MAIN?BB
+            CODE    0013H     000FH     UNIT         ?PR?INIT?BB
+            CODE    0022H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   BB (BB)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?BB
+
+?PR?MAIN?BB
+  +--> ?PR?INIT?BB
+
+
+
+SYMBOL TABLE OF MODULE:  BB (BB)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BB
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:0098H.0       PUBLIC        RI
+  C:0003H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/30/2018  15:09:40  PAGE 2
+
+
+  C:0013H         PUBLIC        init
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:0008H         PUBLIC        a
+  -------         PROC          INIT
+  C:0013H         LINE#         4
+  C:0013H         LINE#         5
+  C:0013H         LINE#         6
+  C:0016H         LINE#         7
+  C:0019H         LINE#         8
+  C:001CH         LINE#         9
+  C:001FH         LINE#         10
+  C:0021H         LINE#         11
+  -------         ENDPROC       INIT
+  -------         PROC          MAIN
+  C:0003H         LINE#         12
+  C:0003H         LINE#         13
+  C:0003H         LINE#         14
+  C:0006H         LINE#         17
+  C:0006H         LINE#         18
+  C:0006H         LINE#         19
+  C:0009H         LINE#         20
+  C:000CH         LINE#         21
+  C:000FH         LINE#         22
+  C:0011H         LINE#         23
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BB
+
+Program Size: data=10.0 xdata=0 code=46
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

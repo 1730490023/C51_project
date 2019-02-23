@@ -1,0 +1,294 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/02/2019  16:59:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\KEIL 4\C51\BIN\BL51.EXE text timer.obj TO timer RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  text timer.obj (TEXT_TIMER)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C?SCDIV)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  timer (TEXT_TIMER)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?SCANKEY?TEXT_TIMER
+                    0009H     0017H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?SCANKEY?TEXT_TIMER
+                    0020H.1   0000H.7                *** GAP ***
+            DATA    0021H     0024H     UNIT         ?DT?TEXT_TIMER
+            IDATA   0045H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     00E0H     UNIT         ?PR?MAIN?TEXT_TIMER
+            CODE    00E3H     008CH     UNIT         ?C_C51STARTUP
+            CODE    016FH     0083H     UNIT         ?PR?DISPLAY?TEXT_TIMER
+            CODE    01F2H     004BH     UNIT         ?PR?SCANKEY?TEXT_TIMER
+            CODE    023DH     0045H     UNIT         ?PR?INIT7219?TEXT_TIMER
+            CODE    0282H     0031H     UNIT         ?C_INITSEG
+            CODE    02B3H     002BH     UNIT         ?PR?TIMES?TEXT_TIMER
+            CODE    02DEH     0027H     UNIT         ?PR?_DELAYNMS?TEXT_TIMER
+            CODE    0305H     0022H     UNIT         ?C?LIB_CODE
+            CODE    0327H     0014H     UNIT         ?PR?_SEND2BYTE?TEXT_TIMER
+            CODE    033BH     0011H     UNIT         ?PR?_SENDBYTE?TEXT_TIMER
+            CODE    034CH     000AH     UNIT         ?PR?_DELAY2US?TEXT_TIMER
+
+
+
+OVERLAY MAP OF MODULE:   timer (TEXT_TIMER)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TEXT_TIMER
+  +--> ?C_INITSEG
+
+?PR?MAIN?TEXT_TIMER
+  +--> ?PR?INIT7219?TEXT_TIMER
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2019  16:59:30  PAGE 2
+
+
+  +--> ?PR?DISPLAY?TEXT_TIMER
+  +--> ?PR?_DELAYNMS?TEXT_TIMER
+  +--> ?PR?TIMES?TEXT_TIMER
+
+?PR?INIT7219?TEXT_TIMER
+  +--> ?PR?_SENDBYTE?TEXT_TIMER
+  +--> ?PR?_DELAYNMS?TEXT_TIMER
+
+?PR?_DELAYNMS?TEXT_TIMER
+  +--> ?PR?_SENDBYTE?TEXT_TIMER
+
+?PR?DISPLAY?TEXT_TIMER
+  +--> ?PR?_SEND2BYTE?TEXT_TIMER
+
+?PR?_SEND2BYTE?TEXT_TIMER
+  +--> ?PR?_SENDBYTE?TEXT_TIMER
+
+
+
+SYMBOL TABLE OF MODULE:  timer (TEXT_TIMER)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEXT_TIMER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0021H         PUBLIC        second
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:023DH         PUBLIC        init7219
+  D:00A8H         PUBLIC        IE
+  D:0022H         PUBLIC        clock
+  C:032EH         PUBLIC        _send2byte
+  B:00A0H.1       PUBLIC        CS
+  D:00B8H         PUBLIC        IP
+  D:0023H         PUBLIC        mines
+  C:02B3H         PUBLIC        times
+  C:0003H         PUBLIC        main
+  C:034CH         PUBLIC        _delay2us
+  D:0024H         PUBLIC        hours
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:0025H         PUBLIC        seg7ca
+  B:0090H.5       PUBLIC        bb
+  B:00A0H.0       PUBLIC        CLK
+  B:00A0H.2       PUBLIC        DIN
+  C:02E7H         PUBLIC        _delaynms
+  C:033BH         PUBLIC        _sendbyte
+  D:003AH         PUBLIC        DM7219
+  D:00C8H         PUBLIC        T2CON
+  C:01F2H         PUBLIC        scankey
+  C:016FH         PUBLIC        display
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          SCANKEY
+  -------         DO            
+  D:0001H         SYMBOL        j
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2019  16:59:30  PAGE 3
+
+
+  D:0007H         SYMBOL        i
+  D:0005H         SYMBOL        k
+  D:0008H         SYMBOL        m
+  D:0006H         SYMBOL        n
+  B:0020H.0       SYMBOL        find
+  -------         ENDDO         
+  C:01F2H         LINE#         9
+  C:01F2H         LINE#         10
+  C:01F2H         LINE#         11
+  C:01F4H         LINE#         13
+  C:01F6H         LINE#         14
+  C:01F8H         LINE#         15
+  C:01F8H         LINE#         16
+  C:01FAH         LINE#         17
+  C:01FFH         LINE#         18
+  C:0203H         LINE#         19
+  C:0203H         LINE#         20
+  C:0205H         LINE#         21
+  C:0207H         LINE#         22
+  C:0217H         LINE#         23
+  C:0217H         LINE#         24
+  C:021BH         LINE#         25
+  C:021FH         LINE#         26
+  C:0223H         LINE#         27
+  C:0225H         LINE#         28
+  C:0225H         LINE#         29
+  C:0225H         LINE#         30
+  C:022AH         LINE#         31
+  C:022EH         LINE#         32
+  C:023AH         LINE#         33
+  C:023CH         LINE#         34
+  -------         ENDPROC       SCANKEY
+  C:02DEH         SYMBOL        L?0064
+  -------         PROC          L?0063
+  -------         ENDPROC       L?0063
+  C:02DEH         SYMBOL        L?0064
+  -------         PROC          _DELAYNMS
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:02E7H         LINE#         36
+  C:02E7H         LINE#         37
+  C:02E7H         LINE#         39
+  C:02F0H         LINE#         40
+  C:0304H         LINE#         41
+  -------         ENDPROC       _DELAYNMS
+  -------         PROC          _DELAY2US
+  D:0007H         SYMBOL        n
+  C:034CH         LINE#         43
+  C:034CH         LINE#         44
+  C:034CH         LINE#         45
+  C:0355H         LINE#         46
+  -------         ENDPROC       _DELAY2US
+  -------         PROC          _SENDBYTE
+  D:0007H         SYMBOL        dat
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2019  16:59:30  PAGE 4
+
+
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:033BH         LINE#         15
+  C:033BH         LINE#         16
+  C:033BH         LINE#         17
+  C:033DH         LINE#         18
+  C:034BH         LINE#         19
+  -------         ENDPROC       _SENDBYTE
+  -------         PROC          L?0065
+  -------         ENDPROC       L?0065
+  -------         PROC          _SEND2BYTE
+  D:0007H         SYMBOL        add
+  D:0004H         SYMBOL        dat
+  C:032EH         LINE#         25
+  C:032EH         LINE#         26
+  -------         ENDPROC       _SEND2BYTE
+  -------         PROC          INIT7219
+  C:023DH         LINE#         29
+  C:023DH         LINE#         36
+  C:0249H         LINE#         37
+  C:0255H         LINE#         38
+  C:0261H         LINE#         39
+  C:026DH         LINE#         40
+  -------         ENDPROC       INIT7219
+  -------         PROC          DISPLAY
+  C:016FH         LINE#         12
+  C:016FH         LINE#         13
+  C:016FH         LINE#         14
+  C:0186H         LINE#         15
+  C:0193H         LINE#         16
+  C:019BH         LINE#         17
+  C:01B2H         LINE#         18
+  C:01BFH         LINE#         19
+  C:01C7H         LINE#         20
+  C:01DEH         LINE#         21
+  -------         ENDPROC       DISPLAY
+  -------         PROC          TIMES
+  C:02B3H         LINE#         26
+  C:02B3H         LINE#         27
+  C:02B3H         LINE#         28
+  C:02B5H         LINE#         32
+  C:02BEH         LINE#         33
+  C:02BEH         LINE#         37
+  C:02C1H         LINE#         38
+  C:02C3H         LINE#         39
+  C:02CCH         LINE#         40
+  C:02CCH         LINE#         44
+  C:02CFH         LINE#         45
+  C:02D1H         LINE#         46
+  C:02DAH         LINE#         47
+  C:02DAH         LINE#         51
+  C:02DDH         LINE#         52
+  C:02DDH         LINE#         53
+  C:02DDH         LINE#         54
+  C:02DDH         LINE#         55
+  -------         ENDPROC       TIMES
+  -------         PROC          MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2019  16:59:30  PAGE 5
+
+
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         57
+  C:0003H         LINE#         58
+  C:0003H         LINE#         60
+  C:0006H         LINE#         61
+  C:0006H         LINE#         62
+  C:0006H         LINE#         63
+  C:0009H         LINE#         65
+  C:000BH         LINE#         66
+  C:000BH         LINE#         67
+  C:0012H         LINE#         68
+  C:002AH         LINE#         69
+  C:002AH         LINE#         70
+  C:0045H         LINE#         71
+  C:0056H         LINE#         72
+  C:0067H         LINE#         73
+  C:0078H         LINE#         74
+  C:0082H         LINE#         75
+  C:0084H         LINE#         77
+  C:0084H         LINE#         78
+  C:008AH         LINE#         79
+  C:008AH         LINE#         80
+  C:00A5H         LINE#         81
+  C:00B6H         LINE#         82
+  C:00C0H         LINE#         83
+  C:00C2H         LINE#         85
+  C:00C2H         LINE#         86
+  C:00CCH         LINE#         87
+  C:00D6H         LINE#         88
+  C:00D6H         LINE#         89
+  C:00D6H         LINE#         90
+  C:00DDH         LINE#         91
+  C:00E0H         LINE#         92
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEXT_TIMER
+
+  -------         MODULE        ?C?SCDIV
+  C:0305H         PUBLIC        ?C?SCDIV
+  -------         ENDMOD        ?C?SCDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?TEXT_TIMER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?TEXT_TIMER
+
+Program Size: data=46.1 xdata=0 code=854
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,81 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\Text file\51 text\51单片机 学习实验\19 循迹小车\小车优化\project\xunji.uvproj
+Project File Date:  12/17/2018
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling hwdg.c...
+compiling moto.c...
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    XUNJI/HWDG
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    RUN/MOTO
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    INITINT/MOTO
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _delaynms
+    MODULE:  ..\output\moto.obj (MOTO)
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _delaynms
+    MODULE:  ..\output\moto.obj (MOTO)
+    ADDRESS: 1000038H
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _delaynms
+    MODULE:  ..\output\moto.obj (MOTO)
+    ADDRESS: 1000089H
+Program Size: data=11.0 xdata=0 const=0 code=293
+目标未创建
+Build target '目标 1'
+compiling hwdg.c...
+compiling moto.c...
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    XUNJI/HWDG
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    RUN/MOTO
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    INITINT/MOTO
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _delaynms
+    MODULE:  ..\output\moto.obj (MOTO)
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _delaynms
+    MODULE:  ..\output\moto.obj (MOTO)
+    ADDRESS: 1000038H
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _delaynms
+    MODULE:  ..\output\moto.obj (MOTO)
+    ADDRESS: 1000089H
+Program Size: data=11.0 xdata=0 const=0 code=293
+目标未创建
+Build target '目标 1'
+compiling hwdg.c...
+compiling moto.c...
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    XUNJI/HWDG
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    RUN/MOTO
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    INITINT/MOTO
+*** ERROR L127: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _delaynms
+    MODULE:  ..\output\moto.obj (MOTO)
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _delaynms
+    MODULE:  ..\output\moto.obj (MOTO)
+    ADDRESS: 1000038H
+*** ERROR L128: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _delaynms
+    MODULE:  ..\output\moto.obj (MOTO)
+    ADDRESS: 1000089H
+Program Size: data=12.0 xdata=0 const=0 code=309
+目标未创建

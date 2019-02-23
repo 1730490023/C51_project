@@ -1,0 +1,73 @@
+C51 COMPILER V9.00   PUBLIC                                                                12/12/2018 10:44:31 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE PUBLIC
+OBJECT MODULE PLACED IN ..\public.obj
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE ..\source\public.c OMF2 BROWSE DEBUG PRINT(.\public.lst) OBJECT(
+                    -..\public.obj)
+
+line level    source
+
+   1          #include <at89x52.h>
+   2          #include "public.h"
+   3          /*----------我是分割线-------------*/
+   4          unsigned char seg7ca[21]=                //板载数码管代码数组
+   5          {0XC0,0XF9,0XA4,0XB0,0X99,0X92,0X82,0XF8,//0-7
+   6           0X80,0X90,0x88,0x83,0xc6,0xa1,0x86,0x8e,//8-F
+   7           0x8c,0xc8,0xaf,0xbf,0XFF};//16-P,17-N,18-r,19-"-",20-灭
+   8          
+   9          
+  10          /*----------键盘扫描程序-----------*/
+  11          signed char scankey(void)
+  12          {unsigned char j=0xef,i,k,m,n;
+  13   1       //j列扫描信号 i列循环控制 k行数据 m键列 n键行 
+  14   1       bit find=0;//默认为0，表示没找到键
+  15   1       for(i=0;i<4;i++)
+  16   1       {P2=j;
+  17   2        k=P2&0x0f;if(k!=0x0f){find=1;m=i;
+  18   3        switch(k){case 0x0e:n=3;break;
+  19   4                  case 0x0d:n=2;break;
+  20   4                  case 0x0b:n=1;break;
+  21   4                  case 0x07:n=0;break;}
+  22   3                 }j=(j<<1)+1;
+  23   2       }if(find)return(n*4+m);
+  24   1        else    return(-1);
+  25   1      }
+  26          /*----------我是分割线-------------*/
+  27          void delaynms(unsigned int x)   //延时X毫秒，误差较大，要求不高的场合用
+  28          {
+  29   1      unsigned int i;          //int类型的--需要9周期 * 1us/每周期 （@12晶振）
+  30   1      for(; x>0; x--)         //这一条耗时忽略
+  31   1      for(i=111;i>0;i--);        //本条实际执行9us * 111 = 0.999ms
+  32   1      }
+  33          /*----------我是分割线-------------*/
+  34          void delay2us(unsigned char n)  //2us为单位延时，当n较小时误差较大
+  35          {
+  36   1      for(;n>0;n--);
+  37   1      }
+  38          /*----------精确的10us级别延时,针对12MHZ晶振-------------*/
+  39          void delay10us(void)//针对时序严格的程序,含调用时间,误差0
+  40          {unsigned char a,b;
+  41   1       for(b=1;b>0;b--)
+  42   1       for(a=1;a>0;a--);
+  43   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    124    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     21       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+   EDATA SIZE       =   ----    ----
+C51 COMPILER V9.00   PUBLIC                                                                12/12/2018 10:44:31 PAGE 2   
+
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

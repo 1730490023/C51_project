@@ -1,0 +1,79 @@
+C51 COMPILER V9.00   MAIN                                                                  12/17/2018 11:20:19 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\output\main.obj
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE ..\source\main.c OMF2 BROWSE DEBUG PRINT(..\listing\main.lst) OB
+                    -JECT(..\output\main.obj)
+
+line level    source
+
+   1          /*
+   2          * 小车优化，两路PWM电机控制
+   3          *
+   4          */
+   5          
+   6          #include<at89x52.h>
+   7          #include"public.h"
+   8          #include"global.h"
+   9          #include"hwdg.h"
+  10          #include"moto.h"
+  11          unsigned char L_PWM;   //左轮PWM
+  12          unsigned char R_PWM;   //右轮PWM
+  13           uchar L_speed; //左轮速度
+  14           uchar R_speed; //右轮速度
+  15          
+  16          void main()
+  17          {
+  18   1        delaynms(400);
+  19   1        initINT();       //外部中断初始化
+  20   1        TMOD=0X51;
+  21   1        ET0=TR0=TR1=1;
+  22   1        EA=1;
+  23   1        while(1)
+  24   1        {
+  25   2         xunji();
+  26   2        }
+  27   1      
+  28   1      }
+  29          
+  30          
+  31          T_0()interrupt 1                //定时器T0
+  32          {
+  33   1       TH0=(65535-2000)/256;
+  34   1       TL0=(65535-2000)%256;
+  35   1       L_PWM++;
+  36   1       if(L_PWM>L_speed)
+  37   1       {
+  38   2        L_PWM=0;
+  39   2        left_lun();
+  40   2       }
+  41   1       else stop();
+  42   1       R_PWM++;
+  43   1       if(R_PWM>R_speed)
+  44   1       {
+  45   2        R_PWM=0;
+  46   2        right_lun();
+  47   2       }
+  48   1       else stop();
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    131    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.00   MAIN                                                                  12/17/2018 11:20:19 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

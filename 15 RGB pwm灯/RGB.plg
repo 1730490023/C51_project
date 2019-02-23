@@ -1,0 +1,300 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\Text file\51 text\51单片机 学习实验\15 RGB pwm灯\RGB.uvproj
+Project File Date:  10/31/2018
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYNMS?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER?LED
+Program Size: data=31.1 xdata=0 code=284
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 4 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYNMS?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=32.1 xdata=0 code=398
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYNMS?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=32.1 xdata=0 code=398
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=32.1 xdata=0 code=439
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=32.1 xdata=0 code=439
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=32.1 xdata=0 code=430
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=32.1 xdata=0 code=437
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=32.1 xdata=0 code=431
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=32.1 xdata=0 code=438
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+LED.C(13): error C202: 'AUXR': undefined identifier
+LED.C(33): error C141: syntax error near 'unsigned'
+LED.C(33): error C202: 'x': undefined identifier
+LED.C(38): error C202: 'x': undefined identifier
+LED.C(39): error C202: 'x': undefined identifier
+LED.C(39): error C202: 'x': undefined identifier
+目标未创建
+Build target '目标 1'
+compiling LED.C...
+LED.C(33): error C141: syntax error near 'unsigned'
+LED.C(33): error C202: 'x': undefined identifier
+LED.C(38): error C202: 'x': undefined identifier
+LED.C(39): error C202: 'x': undefined identifier
+LED.C(39): error C202: 'x': undefined identifier
+目标未创建
+Build target '目标 1'
+compiling LED.C...
+LED.C(33): error C141: syntax error near 'unsigned'
+LED.C(33): error C202: 'x': undefined identifier
+LED.C(38): error C202: 'x': undefined identifier
+LED.C(39): error C202: 'x': undefined identifier
+LED.C(39): error C202: 'x': undefined identifier
+目标未创建
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWMS?LED
+Program Size: data=36.1 xdata=0 code=371
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWMS?LED
+Program Size: data=36.1 xdata=0 code=377
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWMS?LED
+Program Size: data=36.1 xdata=0 code=381
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWMS?LED
+Program Size: data=36.1 xdata=0 code=381
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWMS?LED
+Program Size: data=36.1 xdata=0 code=381
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWMS?LED
+Program Size: data=36.1 xdata=0 code=381
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWMS?LED
+Program Size: data=36.1 xdata=0 code=381
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWMS?LED
+Program Size: data=36.1 xdata=0 code=419
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIMER1INIT?LED
+Program Size: data=36.1 xdata=0 code=408
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 3 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=36.1 xdata=0 code=411
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=36.1 xdata=0 code=411
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=36.1 xdata=0 code=396
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=36.1 xdata=0 code=396
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=36.1 xdata=0 code=411
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).
+Build target '目标 1'
+compiling LED.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+Program Size: data=36.1 xdata=0 code=488
+creating hex file from "RGB"...
+"RGB" - 0 Error(s), 2 Warning(s).

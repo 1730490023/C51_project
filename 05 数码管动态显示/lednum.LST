@@ -1,0 +1,66 @@
+C51 COMPILER V9.00   LEDNUM                                                                09/26/2018 09:41:08 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE LEDNUM
+OBJECT MODULE PLACED IN lednum.OBJ
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE lednum.c BROWSE INCDIR(..\..\51 Library) DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <my.h>
+   3          #define uchar unsigned char
+   4          sbit led1 = P1^1;
+   5          sbit led0 = P1^0;
+   6          sbit b4 = P1^4;
+   7          sbit b5 = P1^5;
+   8          uchar code table1[] =  {0xc0,0xf9,0xa4,0xb0,   //0~f的16个代码,不带小数点
+   9                                     0x99,0x92,0x82,0xf8,
+  10                                         0x80,0x90,0x88,0x83,
+  11                                         0xc6,0xa1,0x86,0x8e};
+  12          uchar x=20,i;
+  13          void main()
+  14          {
+  15   1         for(;x>0;x--)
+  16   1         {
+  17   2              for(i=50;i>0;i--)
+  18   2              {
+  19   3               led1=1;led0=0;
+  20   3               if(x/10)P0 = table1[x/10];
+  21   3               delaynms(10);
+  22   3               P0=0xff;
+  23   3               led0=1;led1=0;
+  24   3               P0 = table1[x%10];
+  25   3               delaynms(10);
+  26   3                P0=0xff;
+  27   3               if(i>45)
+  28   3               {
+  29   4                 b5=0;
+  30   4               }
+  31   3               else
+  32   3               {
+  33   4                b5=1;
+  34   4               }
+  35   3              }   
+  36   2         } 
+  37   1      led1=0;led0=1;P0=table1[0];
+  38   1      b5=b4=0;        
+  39   1        while(1); 
+  40   1      }
+  41          
+  42          
+  43                  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    224    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     23       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

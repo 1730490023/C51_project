@@ -1,0 +1,88 @@
+C51 COMPILER V9.00   MAIN                                                                  12/16/2018 22:24:56 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\main.obj
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE ..\source\main.c OMF2 BROWSE INCDIR(..\source) DEBUG PRINT(.\mai
+                    -n.lst) OBJECT(.\main.obj)
+
+line level    source
+
+   1          #include<at89x52.h>
+   2          #include"global.h"
+   3          #include"public.h"
+   4          #include"lcd1602.h"
+   5          #include"moto.h"
+   6          #include"display.h"
+   7          #include"speed.h"
+   8          #include"Ultra.h"     
+   9          
+  10          uchar C_PWM,C_REF;
+  11          uint C_SEC;         //秒信号
+  12          uint C_DIS;        //测距时间标记 
+  13          
+  14          void main()
+  15          {
+  16   1        delaynms(400);
+  17   1        init1602();
+  18   1        initINT();
+  19   1        initT2();     //启动定时器2
+  20   1        TMOD=0X51;
+  21   1        ET0=TR0=TR1=1;
+  22   1        EA=1;
+  23   1        while(1)
+  24   1        {
+  25   2         if( C_DIS==0 )
+  26   2         {
+  27   3              distance();        //测距函数
+  28   3         }
+  29   2      
+  30   2        }
+  31   1      
+  32   1      }
+  33          
+  34          
+  35          T_0()interrupt 1
+  36          {
+  37   1       TH0=(65535-2000)/256;
+  38   1       TL0=(65535-2000)%256;
+  39   1       C_PWM++;if(C_PWM>4) C_PWM=0;
+  40   1       C_REF++;if(C_REF>=103) C_REF=0;
+  41   1       C_SEC++;if(C_SEC>=500) C_SEC=0;
+  42   1       C_DIS++;if(C_DIS>=252) C_DIS=0;
+  43   1      
+  44   1        if(C_PWM<SHIFT) run();             //电机控制
+  45   1        else stop();
+  46   1        if(C_REF==0) display();                //显示刷屏
+  47   1        if(C_SEC==0) speedcalc();     //1秒测速一次
+  48   1      }
+  49          
+  50          
+  51          
+  52          
+  53          
+  54          
+C51 COMPILER V9.00   MAIN                                                                  12/16/2018 22:24:56 PAGE 2   
+
+  55          
+  56          
+  57          
+  58          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    204    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

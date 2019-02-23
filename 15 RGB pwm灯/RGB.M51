@@ -1,0 +1,203 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/31/2018  17:56:54  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\KEIL 4\C51\BIN\BL51.EXE LED.obj TO RGB RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  LED.obj (LED)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\SOFTWARE\KEIL 4\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  RGB (LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?SCANKEY?LED
+                    0009H     0017H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?SCANKEY?LED
+                    0020H.1   0000H.7                *** GAP ***
+            DATA    0021H     001AH     UNIT         ?DT?LED
+            IDATA   003BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    009AH     0070H     UNIT         ?PR?MAIN?LED
+            CODE    010AH     004BH     UNIT         ?PR?SCANKEY?LED
+            CODE    0155H     0038H     UNIT         ?PR?TIMER?LED
+            CODE    018DH     0029H     UNIT         ?PR?_DELAYNMS?LED
+            CODE    01B6H     0020H     UNIT         ?C_INITSEG
+            CODE    01D6H     0010H     UNIT         ?PR?TIMER1INIT?LED
+            CODE    01E6H     000AH     UNIT         ?PR?_DELAY2US?LED
+
+
+
+OVERLAY MAP OF MODULE:   RGB (LED)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED
+  +--> ?PR?TIMER1INIT?LED
+  +--> ?PR?_DELAYNMS?LED
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/31/2018  17:56:54  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  RGB (LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  B:00A0H.2       PUBLIC        Bin
+  B:00A0H.1       PUBLIC        Gin
+  C:0155H         PUBLIC        timer
+  C:009AH         PUBLIC        main
+  B:00A0H.0       PUBLIC        Rin
+  C:01E6H         PUBLIC        _delay2us
+  D:0089H         PUBLIC        TMOD
+  D:0021H         PUBLIC        seg7ca
+  B:00A8H.1       PUBLIC        ET0
+  C:01D6H         PUBLIC        Timer1Init
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  D:0036H         PUBLIC        pwm
+  B:0088H.4       PUBLIC        TR0
+  D:0037H         PUBLIC        RGB
+  C:0198H         PUBLIC        _delaynms
+  C:010AH         PUBLIC        scankey
+  D:003AH         PUBLIC        x
+  -------         PROC          SCANKEY
+  -------         DO            
+  D:0001H         SYMBOL        j
+  D:0007H         SYMBOL        i
+  D:0005H         SYMBOL        k
+  D:0008H         SYMBOL        m
+  D:0006H         SYMBOL        n
+  B:0020H.0       SYMBOL        find
+  -------         ENDDO         
+  C:010AH         LINE#         9
+  C:010AH         LINE#         10
+  C:010AH         LINE#         11
+  C:010CH         LINE#         13
+  C:010EH         LINE#         14
+  C:0110H         LINE#         15
+  C:0110H         LINE#         16
+  C:0112H         LINE#         17
+  C:0117H         LINE#         18
+  C:011BH         LINE#         19
+  C:011BH         LINE#         20
+  C:011DH         LINE#         21
+  C:011FH         LINE#         22
+  C:012FH         LINE#         23
+  C:012FH         LINE#         24
+  C:0133H         LINE#         25
+  C:0137H         LINE#         26
+  C:013BH         LINE#         27
+  C:013DH         LINE#         28
+  C:013DH         LINE#         29
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/31/2018  17:56:54  PAGE 3
+
+
+  C:013DH         LINE#         30
+  C:0142H         LINE#         31
+  C:0146H         LINE#         32
+  C:0152H         LINE#         33
+  C:0154H         LINE#         34
+  -------         ENDPROC       SCANKEY
+  C:018DH         SYMBOL        L?0056
+  C:0190H         SYMBOL        L?0057
+  C:0193H         SYMBOL        L?0058
+  -------         PROC          L?0055
+  -------         ENDPROC       L?0055
+  C:018DH         SYMBOL        L?0056
+  C:0190H         SYMBOL        L?0057
+  C:0193H         SYMBOL        L?0058
+  -------         PROC          _DELAYNMS
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0198H         LINE#         36
+  C:0198H         LINE#         37
+  C:0198H         LINE#         39
+  C:01A1H         LINE#         40
+  C:01B5H         LINE#         41
+  -------         ENDPROC       _DELAYNMS
+  -------         PROC          _DELAY2US
+  D:0007H         SYMBOL        n
+  C:01E6H         LINE#         43
+  C:01E6H         LINE#         44
+  C:01E6H         LINE#         45
+  C:01EFH         LINE#         46
+  -------         ENDPROC       _DELAY2US
+  -------         PROC          TIMER1INIT
+  C:01D6H         LINE#         12
+  C:01D6H         LINE#         13
+  C:01D6H         LINE#         14
+  C:01D9H         LINE#         15
+  C:01DCH         LINE#         16
+  C:01DFH         LINE#         17
+  C:01E1H         LINE#         18
+  C:01E3H         LINE#         19
+  C:01E5H         LINE#         20
+  -------         ENDPROC       TIMER1INIT
+  -------         PROC          MAIN
+  C:009AH         LINE#         24
+  C:009AH         LINE#         25
+  C:009AH         LINE#         26
+  C:009DH         LINE#         27
+  C:009DH         LINE#         28
+  C:009DH         LINE#         29
+  C:00AFH         LINE#         30
+  C:00BEH         LINE#         31
+  C:00D4H         LINE#         32
+  C:00E3H         LINE#         33
+  C:00F9H         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER
+BL51 BANKED LINKER/LOCATER V6.22                                                      10/31/2018  17:56:54  PAGE 4
+
+
+  C:0155H         LINE#         38
+  C:0159H         LINE#         40
+  C:015CH         LINE#         41
+  C:015FH         LINE#         42
+  C:0161H         LINE#         43
+  C:016EH         LINE#         44
+  C:017BH         LINE#         45
+  C:0188H         LINE#         46
+  -------         ENDPROC       TIMER
+  -------         ENDMOD        LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SCANKEY?LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY2US?LED
+
+Program Size: data=36.1 xdata=0 code=488
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
