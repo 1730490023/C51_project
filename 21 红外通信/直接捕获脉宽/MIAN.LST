@@ -1,0 +1,202 @@
+C51 COMPILER V9.00   MIAN                                                                  05/03/2019 16:38:33 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MIAN
+OBJECT MODULE PLACED IN MIAN.OBJ
+COMPILER INVOKED BY: D:\Software\KEIL 4\C51\BIN\C51.EXE MIAN.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg52.h"
+   2          #include "INTRINS.H"
+   3          
+   4           sbit LED = P2^6;
+   5           sbit IRIN = P3^2;
+   6           /* 变量定义 ----------------------------------------------- */
+   7          
+   8          
+   9          unsigned char IrValue[4];//用于存储数据码，对应前两个是地址位，后两个是数据位和校验位 
+  10          unsigned char Time;//计时变量， 
+  11          bit erro;     //校验变量，表示是否校验通过，如果不能成功校验，很可能发生了错误
+  12                                        
+  13          
+  14          /**********************************************************
+  15           * 函数名称 : IR_Init()
+  16           * 功    能 : 初始化红外线接收，外部中断 ，串口初始化
+  17           * 备    注 : 初始化外部中断1
+  18           **********************************************************/
+  19          void IR_Init()
+  20          { 
+  21   1          IT0 = 1;         //下降沿触发
+  22   1          EX0 = 1;         //打开中断0允许
+  23   1                    
+  24   1              TMOD |=0x20;     //定时器8位自动从装
+  25   1              TL1 = TH1 =0xfd; //比特率9600；
+  26   1              SM1 = 1;                 //串口工作模式1，10位异步收发
+  27   1              TR1 = 1;                 //启动定时器1
+  28   1      
+  29   1              EA = 1;              //打开总中断
+  30   1              IRIN = 1;
+  31   1      }
+  32          
+  33          //函数功能         : 延时函数，i=1时，大约延时10us
+  34          void delay(unsigned int i)
+  35          {
+  36   1          while(i--); 
+  37   1      }
+  38          //void Delay10us()              //@11.0592MHz
+  39          //{
+  40          //      unsigned char i;
+  41          //
+  42          //      _nop_();
+  43          //      i = 25;
+  44          //      while (--i);
+  45          //}
+  46          //void Delay7ms()               //@11.0592MHz
+  47          //{
+  48          //      unsigned char i, j;
+  49          //
+  50          //      _nop_();
+  51          //      _nop_();
+  52          //      i = 76;
+  53          //      j = 74;
+  54          //      do
+  55          //      {
+C51 COMPILER V9.00   MIAN                                                                  05/03/2019 16:38:33 PAGE 2   
+
+  56          //              while (--j);
+  57          //      } while (--i);
+  58          //}
+  59          //void Delay100us()             //@11.0592MHz
+  60          //{
+  61          //      unsigned char i, j;
+  62          //
+  63          //      _nop_();
+  64          //      _nop_();
+  65          //      i = 2;
+  66          //      j = 15;
+  67          //      do
+  68          //      {
+  69          //              while (--j);
+  70          //      } while (--i);
+  71          //}
+  72          
+  73          
+  74          
+  75          /**********************************************************
+  76          *外部中断函数，提取数据码
+  77          *
+  78          ***********************************************************/
+  79          void int0() interrupt 0
+  80          { 
+  81   1          unsigned char j,k;//循环控制变量
+  82   1          unsigned int err;
+  83   1              
+  84   1          Time=0;                  
+  85   1          delay(700); //7ms
+  86   1          if(IRIN==0)     //确认是否真的接收到正确的信号；与开关消抖类似
+  87   1          {    
+  88   2      
+  89   2              err=1000;               //1000*10us=10ms,超过说明接收到错误的信号.
+  90   2              //这里10ms是大于9ms的，这么做更保险一点，下面的做法类似
+  91   2      
+  92   2                      //读取数据的头，即开始信号
+  93   2              while((IRIN==0)&&(err>0))   //等待前面9ms的低电平过去         
+  94   2              {           
+  95   3                  delay(1);
+  96   3                  err--;
+  97   3              } 
+  98   2              if(IRIN==1)         //开始信号校验成功      
+  99   2              {
+ 100   3                  err=500; //500*10us=5ms；
+ 101   3                  while((IRIN==1)&&(err>0))        //等待4.5ms的起始高电平过去
+ 102   3                  {
+ 103   4                      delay(1);
+ 104   4                      err--;
+ 105   4                  }
+ 106   3                  for(k=0;k<4;k++)        //共有4组数据
+ 107   3                  {               
+ 108   4                      for(j=0;j<8;j++)    //接收一组数据
+ 109   4                      {
+ 110   5      
+ 111   5                          err=60; //校验上限600us 
+ 112   5                          while((IRIN==0)&&(err>0))//等待信号前面的560us低电平过去
+ 113   5                          {
+ 114   6                              delay(1);
+ 115   6                              err--;
+ 116   6                          }
+ 117   5                          err=500;
+C51 COMPILER V9.00   MIAN                                                                  05/03/2019 16:38:33 PAGE 3   
+
+ 118   5                          while((IRIN==1)&&(err>0))    //计算高电平的时间长度。
+ 119   5                          {
+ 120   6                              delay(10);   //0.1ms
+ 121   6                              Time++;
+ 122   6                              err--;
+ 123   6                              if(Time>30) //超时太久时退出
+ 124   6                              {
+ 125   7                                  return;
+ 126   7                              }
+ 127   6                          }
+ 128   5                          IrValue[k]>>=1;  //k表示第几组数据
+ 129   5                          if(Time>=8)         //如果高电平出现大于565us，那么是1
+ 130   5                          //注意这里高电平理论时间长是1680us，低电平的是560us
+ 131   5                          //取Time大于6来检验当然就可以了，但不太保险，网上各类教程都是娶了一个中间值8
+ 132   5                          {
+ 133   6                              IrValue[k]|=0x80;//在最高为写1，通过按位与运算实现
+ 134   6                                              //如果不写默认是0；
+ 135   6                          }
+ 136   5                          Time=0;     //用完时间要重新赋值                         
+ 137   5                      }
+ 138   4                  }
+ 139   3              }
+ 140   2              //下面要对数据进行校验，校验的方式位判断第四位数据是否位第三位数据吗的反码
+ 141   2              if(IrValue[2]==~IrValue[3])
+ 142   2              {
+ 143   3                  erro=1;
+ 144   3              }
+ 145   2              else
+ 146   2              {
+ 147   3                  erro=0;
+ 148   3              }
+ 149   2          }          
+ 150   1      }
+ 151          
+ 152          
+ 153          void main()
+ 154           { 
+ 155   1        unsigned char i,j;
+ 156   1      //   IR_Init();
+ 157   1         while(1)
+ 158   1         {
+ 159   2         delay(100);
+ 160   2         LED =!LED;
+ 161   2      //        if(!IRIN)  //判断解码是否完成
+ 162   2      //        {      
+ 163   2      //          for(i=0;i<4;i++)     //串口发送4个字节数据
+ 164   2      //              {
+ 165   2      //               SBUF = IrValue[i];
+ 166   2      //               while(!TI);             //等待发送完成
+ 167   2      //               TI = 0;
+ 168   2      //              }
+ 169   2      //        }
+ 170   2         }
+ 171   1       }
+*** WARNING C280 IN LINE 155 OF MIAN.C: 'i': unreferenced local variable
+*** WARNING C280 IN LINE 155 OF MIAN.C: 'j': unreferenced local variable
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    289    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.00   MIAN                                                                  05/03/2019 16:38:33 PAGE 4   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

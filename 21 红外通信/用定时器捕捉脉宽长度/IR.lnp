@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"MAIN.obj" 
+TO "IR" 
+RAMSIZE(256) 
