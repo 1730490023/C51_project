@@ -1,0 +1,62 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\Text file\51 text\51单片机 案例\C51_project\22 74hc595锁存器点灯\595.uvproj
+Project File Date:  05/23/2019
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling main.c...
+main.c(1): warning C318: can't open file 'at89x52.h'
+MAIN.C(6): error C141: syntax error near 'sbit'
+MAIN.C(6): error C202: 'P2': undefined identifier
+MAIN.C(7): error C202: 'P2': undefined identifier
+MAIN.C(8): error C202: 'P2': undefined identifier
+目标未创建
+Build target '目标 1'
+compiling main.c...
+main.c(1): warning C318: can't open file 'stc89x52.h'
+MAIN.C(6): error C141: syntax error near 'sbit'
+MAIN.C(6): error C202: 'P2': undefined identifier
+MAIN.C(7): error C202: 'P2': undefined identifier
+MAIN.C(8): error C202: 'P2': undefined identifier
+目标未创建
+Build target '目标 1'
+compiling main.c...
+MAIN.C(6): error C141: syntax error near 'sbit'
+目标未创建
+Build target '目标 1'
+compiling main.c...
+linking...
+Program Size: data=10.0 xdata=0 code=122
+"595" - 0 Error(s), 0 Warning(s).
+Build target '目标 1'
+compiling main.c...
+linking...
+Program Size: data=10.0 xdata=0 code=122
+creating hex file from "595"...
+"595" - 0 Error(s), 0 Warning(s).
+Build target '目标 1'
+compiling main.c...
+linking...
+Program Size: data=10.0 xdata=0 code=109
+creating hex file from "595"...
+"595" - 0 Error(s), 0 Warning(s).
+Build target '目标 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY?MAIN
+Program Size: data=10.0 xdata=0 code=106
+creating hex file from "595"...
+"595" - 0 Error(s), 1 Warning(s).
+Build target '目标 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY?MAIN
+Program Size: data=10.0 xdata=0 code=106
+creating hex file from "595"...
+"595" - 0 Error(s), 1 Warning(s).

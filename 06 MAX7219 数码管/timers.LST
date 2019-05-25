@@ -1,4 +1,4 @@
-C51 COMPILER V9.00   TIMERS                                                                01/02/2019 16:42:41 PAGE 1   
+C51 COMPILER V9.00   TIMERS                                                                05/23/2019 16:10:44 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE TIMERS
@@ -9,35 +9,36 @@ line level    source
 
    1          #include<at89x52.h>
    2          #include<my.h>
+*** WARNING C318 IN LINE 2 OF timers.c: can't open file 'my.h'
    3          #include<MAX7219.h>
+*** WARNING C318 IN LINE 3 OF timers.c: can't open file 'MAX7219.h'
    4          
    5          
    6          void main()
    7          {  
    8   1         init7219();
+*** WARNING C206 IN LINE 8 OF TIMERS.C: 'init7219': missing function-prototype
    9   1         send2byte(8,DM7219[0]);
+*** WARNING C206 IN LINE 9 OF TIMERS.C: 'send2byte': missing function-prototype
+*** ERROR C267 IN LINE 9 OF TIMERS.C: 'send2byte': requires ANSI-style prototype
+*** ERROR C202 IN LINE 9 OF TIMERS.C: 'DM7219': undefined identifier
   10   1         send2byte(7,DM7219[1]);
+*** ERROR C202 IN LINE 10 OF TIMERS.C: 'DM7219': undefined identifier
   11   1         send2byte(6,DM7219[0]);
+*** ERROR C202 IN LINE 11 OF TIMERS.C: 'DM7219': undefined identifier
   12   1         send2byte(5,DM7219[2]);
+*** ERROR C202 IN LINE 12 OF TIMERS.C: 'DM7219': undefined identifier
   13   1         send2byte(4,DM7219[0]);
+*** ERROR C202 IN LINE 13 OF TIMERS.C: 'DM7219': undefined identifier
   14   1         send2byte(3,DM7219[4]);
+*** ERROR C202 IN LINE 14 OF TIMERS.C: 'DM7219': undefined identifier
   15   1         send2byte(2,DM7219[1]);
+*** ERROR C202 IN LINE 15 OF TIMERS.C: 'DM7219': undefined identifier
   16   1         send2byte(1,DM7219[2]);
+*** ERROR C202 IN LINE 16 OF TIMERS.C: 'DM7219': undefined identifier
   17   1         delaynms(1000);
   18   1         while(1);
   19   1      }
   20          
 
-
-MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    301    ----
-   CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =   ----    ----
-   PDATA SIZE       =   ----    ----
-   DATA SIZE        =     32       1
-   IDATA SIZE       =   ----    ----
-   BIT SIZE         =   ----       1
-END OF MODULE INFORMATION.
-
-
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  4 WARNING(S),  9 ERROR(S)
